@@ -1,0 +1,190 @@
+<mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+<mat-table [dataSource]="rows" class="mat-elevation-z8" matSort>
+    <!-- id! Column -->
+  <ng-container matColumnDef="AMIBOGCXCFacturaid">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "AMIBOGCXCFacturaDetalles.AMIBOGCXCFacturaid" | translate }}!</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.AMIBOGCXCFacturaid}}</mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "AMIBOGCXCFacturaDetalles.AMIBOGCXCFacturaid" | translate }}!
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.AMIBOGCXCFacturaid">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.AMIBOGCXCFacturaid">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('AMIBOGCXCFacturaid')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Row! Column -->
+  <ng-container matColumnDef="AMIBOGCXCFacturaDetalleRow">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "AMIBOGCXCFacturaDetalles.AMIBOGCXCFacturaDetalleRow" | translate }}!</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.AMIBOGCXCFacturaDetalleRow}}</mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "AMIBOGCXCFacturaDetalles.AMIBOGCXCFacturaDetalleRow" | translate }}!
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.AMIBOGCXCFacturaDetalleRow">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.AMIBOGCXCFacturaDetalleRow">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('AMIBOGCXCFacturaDetalleRow')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Cantidad: Column -->
+  <ng-container matColumnDef="AMIBOGCXCFacturaDetalleCantidad">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "AMIBOGCXCFacturaDetalles.AMIBOGCXCFacturaDetalleCantidad" | translate }}:</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.AMIBOGCXCFacturaDetalleCantidad}}</mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "AMIBOGCXCFacturaDetalles.AMIBOGCXCFacturaDetalleCantidad" | translate }}:
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.AMIBOGCXCFacturaDetalleCantidad">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.AMIBOGCXCFacturaDetalleCantidad">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('AMIBOGCXCFacturaDetalleCantidad')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Descripcion: Column -->
+  <ng-container matColumnDef="AMIBOGCXCFacturaDetalleDescripcion">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "AMIBOGCXCFacturaDetalles.AMIBOGCXCFacturaDetalleDescripcion" | translate }}:</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.AMIBOGCXCFacturaDetalleDescripcion}}</mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "AMIBOGCXCFacturaDetalles.AMIBOGCXCFacturaDetalleDescripcion" | translate }}:
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.AMIBOGCXCFacturaDetalleDescripcion">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.AMIBOGCXCFacturaDetalleDescripcion">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('AMIBOGCXCFacturaDetalleDescripcion')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Valor Unitario: Column -->
+  <ng-container matColumnDef="AMIBOGCXCFacturaDetalleValorUnitario">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "AMIBOGCXCFacturaDetalles.AMIBOGCXCFacturaDetalleValorUnitario" | translate }}:</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.AMIBOGCXCFacturaDetalleValorUnitario}}</mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "AMIBOGCXCFacturaDetalles.AMIBOGCXCFacturaDetalleValorUnitario" | translate }}:
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.AMIBOGCXCFacturaDetalleValorUnitario">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.AMIBOGCXCFacturaDetalleValorUnitario">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('AMIBOGCXCFacturaDetalleValorUnitario')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Valor Total= Column -->
+  <ng-container matColumnDef="AMIBOGCXCFacturaDetalleValorTotal">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "AMIBOGCXCFacturaDetalles.AMIBOGCXCFacturaDetalleValorTotal" | translate }}=</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.AMIBOGCXCFacturaDetalleValorTotal}}</mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "AMIBOGCXCFacturaDetalles.AMIBOGCXCFacturaDetalleValorTotal" | translate }}=
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.AMIBOGCXCFacturaDetalleValorTotal">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.AMIBOGCXCFacturaDetalleValorTotal">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('AMIBOGCXCFacturaDetalleValorTotal')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onSelect($event, row);"></mat-row>
+</mat-table>
+<mat-toolbar>
+    <mat-toolbar-row>
+      <mat-icon (click)="add()">add</mat-icon>
+      <mat-icon (click)="edit()">edit</mat-icon>
+      <mat-icon (click)="refresh()">refresh</mat-icon>
+      <mat-icon (click)="exportCsv(dataSource)" title="Export as CSV">save_alt</mat-icon>
+      <span class="example-spacer"></span>
+      <mat-paginator class="paginator" [length]="rows.length" [pageSize]="_pageSize" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    </mat-toolbar-row>
+</mat-toolbar>

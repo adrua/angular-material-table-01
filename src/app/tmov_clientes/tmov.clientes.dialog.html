@@ -1,0 +1,187 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>{{ 'TMOVClientes._titulo' | translate }}</mat-card-title>
+    </mat-card-header> 
+    <mat-card-content>
+        <form [formGroup]="TMOV_ClientesForm" (ngSubmit)="onSubmit(TMOV_ClientesForm.value)">
+            <div class="dialog-content">
+                <div class="row">
+                    <div class="col-sm-4 col-xs-12">                
+                        <label>{{ "TMOVClientes.TMOVClienteTipoDocumento" | translate }}!</label>
+                        <mat-radio-group 
+                            formControlName="TMOVClienteTipoDocumento">
+                          <mat-radio-button value="CC" selected="true">{{ "TMOVClientes._TMOVClienteTipoDocumento.Cédula_de_ciudadania" | translate }}</mat-radio-button>
+                          <mat-radio-button value="CE">{{ "TMOVClientes._TMOVClienteTipoDocumento.Cédula_de_Extranjería" | translate }}</mat-radio-button>
+                          <mat-radio-button value="TI">{{ "TMOVClientes._TMOVClienteTipoDocumento.Tarjeta_de_Identidad" | translate }}</mat-radio-button>
+                          <mat-radio-button value="NI">{{ "TMOVClientes._TMOVClienteTipoDocumento.NIT" | translate }}</mat-radio-button>
+                          <mat-radio-button value="PA">{{ "TMOVClientes._TMOVClienteTipoDocumento.Pasaporte" | translate }}</mat-radio-button>
+                        </mat-radio-group >
+                        <mat-error *ngIf="TMOV_ClientesForm.controls.TMOVClienteTipoDocumento.invalid && TMOV_ClientesForm.controls.TMOVClienteTipoDocumento.touched">{{ "TMOVClientes.TMOVClienteTipoDocumentoError" | translate }}</mat-error>
+                    </div>                
+                    <div class="col-sm-4 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  
+                                    formControlName="TMOVClienteNumeroDocumento" 
+                                    placeholder="{{ 'TMOVClientes.TMOVClienteNumeroDocumento' | translate }}!" />
+                        </mat-form-field>
+                        <mat-error *ngIf="TMOV_ClientesForm.controls.TMOVClienteNumeroDocumento.invalid && TMOV_ClientesForm.controls.TMOVClienteNumeroDocumento.touched">{{ "TMOVClientes.TMOVClienteNumeroDocumentoError" | translate }}</mat-error>
+                    </div>
+                    <div class="col-sm-4 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput [matDatepicker]="myDatepickerTMOVClienteFecha"   displayFormat="MMM DD/YYYY" 
+                                    formControlName="TMOVClienteFecha" 
+                                    placeholder="{{ 'TMOVClientes.TMOVClienteFecha' | translate }}:" />
+                            <mat-datepicker-toggle matSuffix [for]="myDatepickerTMOVClienteFecha"></mat-datepicker-toggle>
+                            <mat-datepicker #myDatepickerTMOVClienteFecha></mat-datepicker>
+                        </mat-form-field>
+                        <mat-error *ngIf="TMOV_ClientesForm.controls.TMOVClienteFecha.invalid && TMOV_ClientesForm.controls.TMOVClienteFecha.touched">{{ "TMOVClientes.TMOVClienteFechaError" | translate }}</mat-error>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  
+                                    formControlName="TMOVClienteNombres" 
+                                    placeholder="{{ 'TMOVClientes.TMOVClienteNombres' | translate }}:" />
+                        </mat-form-field>
+                        <mat-error *ngIf="TMOV_ClientesForm.controls.TMOVClienteNombres.invalid && TMOV_ClientesForm.controls.TMOVClienteNombres.touched">{{ "TMOVClientes.TMOVClienteNombresError" | translate }}</mat-error>
+                    </div>
+                    <div class="col-sm-6 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  
+                                    formControlName="TMOVClienteApellidos" 
+                                    placeholder="{{ 'TMOVClientes.TMOVClienteApellidos' | translate }}:" />
+                        </mat-form-field>
+                        <mat-error *ngIf="TMOV_ClientesForm.controls.TMOVClienteApellidos.invalid && TMOV_ClientesForm.controls.TMOVClienteApellidos.touched">{{ "TMOVClientes.TMOVClienteApellidosError" | translate }}</mat-error>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  readonly
+                                    formControlName="TMOVClienteNombreCompleto" 
+                                    placeholder="{{ 'TMOVClientes.TMOVClienteNombreCompleto' | translate }}=" />
+                        </mat-form-field>
+                        <mat-error *ngIf="TMOV_ClientesForm.controls.TMOVClienteNombreCompleto.invalid && TMOV_ClientesForm.controls.TMOVClienteNombreCompleto.touched">{{ "TMOVClientes.TMOVClienteNombreCompletoError" | translate }}</mat-error>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-xs-12">                
+                        <label>{{ "TMOVClientes.TMOVClienteSexo" | translate }}:</label>
+                        <mat-radio-group 
+                            formControlName="TMOVClienteSexo">
+                          <mat-radio-button value="M" selected="true">{{ "TMOVClientes._TMOVClienteSexo.Masculino" | translate }}</mat-radio-button>
+                          <mat-radio-button value="F">{{ "TMOVClientes._TMOVClienteSexo.Femenino" | translate }}</mat-radio-button>
+                          <mat-radio-button value="O">{{ "TMOVClientes._TMOVClienteSexo.Otro" | translate }}</mat-radio-button>
+                        </mat-radio-group >
+                        <mat-error *ngIf="TMOV_ClientesForm.controls.TMOVClienteSexo.invalid && TMOV_ClientesForm.controls.TMOVClienteSexo.touched">{{ "TMOVClientes.TMOVClienteSexoError" | translate }}</mat-error>
+                    </div>                
+                    <div class="col-sm-6 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput [matDatepicker]="myDatepickerTMOVClienteFechaNacimiento"   displayFormat="MMM DD/YYYY" 
+                                    formControlName="TMOVClienteFechaNacimiento" 
+                                    placeholder="{{ 'TMOVClientes.TMOVClienteFechaNacimiento' | translate }}:" />
+                            <mat-datepicker-toggle matSuffix [for]="myDatepickerTMOVClienteFechaNacimiento"></mat-datepicker-toggle>
+                            <mat-datepicker #myDatepickerTMOVClienteFechaNacimiento></mat-datepicker>
+                        </mat-form-field>
+                        <mat-error *ngIf="TMOV_ClientesForm.controls.TMOVClienteFechaNacimiento.invalid && TMOV_ClientesForm.controls.TMOVClienteFechaNacimiento.touched">{{ "TMOVClientes.TMOVClienteFechaNacimientoError" | translate }}</mat-error>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-xs-12" style="display: none;">
+                        <mat-form-field>
+                            <input matInput type="text"  readonly
+                                    formControlName="GOVCOPaisId" 
+                                    placeholder="{{ 'TMOVClientes.GOVCOPaisId' | translate }}:" />
+                        </mat-form-field>
+                        <mat-error *ngIf="TMOV_ClientesForm.controls.GOVCOPaisId.invalid && TMOV_ClientesForm.controls.GOVCOPaisId.touched">{{ "TMOVClientes.GOVCOPaisIdError" | translate }}</mat-error>
+                    </div>
+                    <div class="col-sm-6 col-xs-12">                
+                        <mat-form-field>
+                            <input matInput  
+                                    [matAutocomplete]="GOVCOPaisNombre"
+                                    [formControl]="GOVCOPaisNombreCtrl" 
+                                    placeholder="{{ 'TMOVClientes.GOVCOPaisNombre' | translate }}:" />
+                        </mat-form-field>
+                        <mat-autocomplete #GOVCOPaisNombre="matAutocomplete">
+                            <mat-option *ngFor="let opt of filteredGOVCOPaisNombre" [value]="opt.label" (click)="selectGOVCOPaisNombre(opt);">
+                                {{ opt.label }}
+                            </mat-option>
+                        </mat-autocomplete>
+                        <mat-error *ngIf="GOVCOPaisNombreCtrl.invalid && GOVCOPaisNombreCtrl.touched">{{ "TMOVClientes.GOVCOPaisNombreError" | translate }}</mat-error>
+                    </div>                
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  
+                                    formControlName="TMOVClienteTelefono" 
+                                    placeholder="{{ 'TMOVClientes.TMOVClienteTelefono' | translate }}:" />
+                        </mat-form-field>
+                        <mat-error *ngIf="TMOV_ClientesForm.controls.TMOVClienteTelefono.invalid && TMOV_ClientesForm.controls.TMOVClienteTelefono.touched">{{ "TMOVClientes.TMOVClienteTelefonoError" | translate }}</mat-error>
+                    </div>
+                    <div class="col-sm-6 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  
+                                    formControlName="TMOVClienteCelular" 
+                                    placeholder="{{ 'TMOVClientes.TMOVClienteCelular' | translate }}:" />
+                        </mat-form-field>
+                        <mat-error *ngIf="TMOV_ClientesForm.controls.TMOVClienteCelular.invalid && TMOV_ClientesForm.controls.TMOVClienteCelular.touched">{{ "TMOVClientes.TMOVClienteCelularError" | translate }}</mat-error>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  
+                                    formControlName="TMOVClienteEmail" 
+                                    placeholder="{{ 'TMOVClientes.TMOVClienteEmail' | translate }}:" />
+                        </mat-form-field>
+                        <mat-error *ngIf="TMOV_ClientesForm.controls.TMOVClienteEmail.invalid && TMOV_ClientesForm.controls.TMOVClienteEmail.touched">{{ "TMOVClientes.TMOVClienteEmailError" | translate }}</mat-error>
+                    </div>
+                    <div class="col-sm-6 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  
+                                    formControlName="TMOVClienteEmailAlternativo" 
+                                    placeholder="{{ 'TMOVClientes.TMOVClienteEmailAlternativo' | translate }}:" />
+                        </mat-form-field>
+                        <mat-error *ngIf="TMOV_ClientesForm.controls.TMOVClienteEmailAlternativo.invalid && TMOV_ClientesForm.controls.TMOVClienteEmailAlternativo.touched">{{ "TMOVClientes.TMOVClienteEmailAlternativoError" | translate }}</mat-error>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  
+                                    formControlName="TMOVClienteOcupacion" 
+                                    placeholder="{{ 'TMOVClientes.TMOVClienteOcupacion' | translate }}:" />
+                        </mat-form-field>
+                        <mat-error *ngIf="TMOV_ClientesForm.controls.TMOVClienteOcupacion.invalid && TMOV_ClientesForm.controls.TMOVClienteOcupacion.touched">{{ "TMOVClientes.TMOVClienteOcupacionError" | translate }}</mat-error>
+                    </div>
+                    <div class="col-sm-6 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  
+                                    formControlName="TMOVClientePaisResidencia" 
+                                    placeholder="{{ 'TMOVClientes.TMOVClientePaisResidencia' | translate }}:" />
+                        </mat-form-field>
+                        <mat-error *ngIf="TMOV_ClientesForm.controls.TMOVClientePaisResidencia.invalid && TMOV_ClientesForm.controls.TMOVClientePaisResidencia.touched">{{ "TMOVClientes.TMOVClientePaisResidenciaError" | translate }}</mat-error>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-xs-12">                
+                        <label>{{ "TMOVClientes.TMOVClienteEstado" | translate }}:</label>
+                        <mat-radio-group 
+                            formControlName="TMOVClienteEstado">
+                          <mat-radio-button value="AC" selected="true">{{ "TMOVClientes._TMOVClienteEstado.Activo" | translate }}</mat-radio-button>
+                          <mat-radio-button value="IN">{{ "TMOVClientes._TMOVClienteEstado.Inactivo" | translate }}</mat-radio-button>
+                        </mat-radio-group >
+                        <mat-error *ngIf="TMOV_ClientesForm.controls.TMOVClienteEstado.invalid && TMOV_ClientesForm.controls.TMOVClienteEstado.touched">{{ "TMOVClientes.TMOVClienteEstadoError" | translate }}</mat-error>
+                    </div>                
+              </div>
+            </div>
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <mat-spinner *ngIf="_proc" style="width: 15px; height:15px"></mat-spinner>
+        <button mat-button (click)="onSubmit(TMOV_ClientesForm.value);" [disabled]="!TMOV_ClientesForm.valid">{{ "TMOVClientes._guardar" | translate  }}</button>
+        <button mat-button mat-dialog-close>{{ "TMOVClientes._cancelar" | translate  }}</button>
+    </mat-card-actions>
+</mat-card>

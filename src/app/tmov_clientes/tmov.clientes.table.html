@@ -1,0 +1,512 @@
+<mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>
+<mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+<mat-table [dataSource]="rows" class="mat-elevation-z8" matSort>
+    <!-- Tipo Documento! Column -->
+  <ng-container matColumnDef="TMOVClienteTipoDocumento">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "TMOVClientes.TMOVClienteTipoDocumento" | translate }}!</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.TMOVClienteTipoDocumento}}</mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "TMOVClientes.TMOVClienteTipoDocumento" | translate }}!
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.TMOVClienteTipoDocumento">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.TMOVClienteTipoDocumento">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('TMOVClienteTipoDocumento')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Numero Documento! Column -->
+  <ng-container matColumnDef="TMOVClienteNumeroDocumento">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "TMOVClientes.TMOVClienteNumeroDocumento" | translate }}!</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.TMOVClienteNumeroDocumento}}</mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "TMOVClientes.TMOVClienteNumeroDocumento" | translate }}!
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.TMOVClienteNumeroDocumento">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.TMOVClienteNumeroDocumento">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('TMOVClienteNumeroDocumento')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Fecha: Column -->
+  <ng-container matColumnDef="TMOVClienteFecha">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "TMOVClientes.TMOVClienteFecha" | translate }}:</mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.TMOVClienteFecha | date}} </mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "TMOVClientes.TMOVClienteFecha" | translate }}:
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.TMOVClienteFecha">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.TMOVClienteFecha">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('TMOVClienteFecha')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Nombres: Column -->
+  <ng-container matColumnDef="TMOVClienteNombres">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "TMOVClientes.TMOVClienteNombres" | translate }}:</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.TMOVClienteNombres}}</mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "TMOVClientes.TMOVClienteNombres" | translate }}:
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.TMOVClienteNombres">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.TMOVClienteNombres">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('TMOVClienteNombres')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Apellidos: Column -->
+  <ng-container matColumnDef="TMOVClienteApellidos">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "TMOVClientes.TMOVClienteApellidos" | translate }}:</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.TMOVClienteApellidos}}</mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "TMOVClientes.TMOVClienteApellidos" | translate }}:
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.TMOVClienteApellidos">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.TMOVClienteApellidos">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('TMOVClienteApellidos')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Nombre Completo= Column -->
+  <ng-container matColumnDef="TMOVClienteNombreCompleto">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "TMOVClientes.TMOVClienteNombreCompleto" | translate }}=</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.TMOVClienteNombreCompleto}}</mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "TMOVClientes.TMOVClienteNombreCompleto" | translate }}=
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.TMOVClienteNombreCompleto">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.TMOVClienteNombreCompleto">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('TMOVClienteNombreCompleto')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Sexo: Column -->
+  <ng-container matColumnDef="TMOVClienteSexo">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "TMOVClientes.TMOVClienteSexo" | translate }}:</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.TMOVClienteSexo}}</mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "TMOVClientes.TMOVClienteSexo" | translate }}:
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.TMOVClienteSexo">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.TMOVClienteSexo">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('TMOVClienteSexo')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Fecha Nacimiento: Column -->
+  <ng-container matColumnDef="TMOVClienteFechaNacimiento">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "TMOVClientes.TMOVClienteFechaNacimiento" | translate }}:</mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.TMOVClienteFechaNacimiento | date}} </mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "TMOVClientes.TMOVClienteFechaNacimiento" | translate }}:
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.TMOVClienteFechaNacimiento">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.TMOVClienteFechaNacimiento">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('TMOVClienteFechaNacimiento')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Pais: Column -->
+  <ng-container matColumnDef="GOVCOPaisId">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "TMOVClientes.GOVCOPaisId" | translate }}:</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.GOVCOPaisId}}</mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "TMOVClientes.GOVCOPaisId" | translate }}:
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.GOVCOPaisId">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.GOVCOPaisId">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('GOVCOPaisId')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Pais: Column -->
+  <ng-container matColumnDef="GOVCOPaisNombre">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "TMOVClientes.GOVCOPaisNombre" | translate }}:</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.GOVCOPaisNombre}}</mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "TMOVClientes.GOVCOPaisNombre" | translate }}:
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.GOVCOPaisNombre">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.GOVCOPaisNombre">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('GOVCOPaisNombre')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Telefono: Column -->
+  <ng-container matColumnDef="TMOVClienteTelefono">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "TMOVClientes.TMOVClienteTelefono" | translate }}:</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.TMOVClienteTelefono}}</mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "TMOVClientes.TMOVClienteTelefono" | translate }}:
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.TMOVClienteTelefono">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.TMOVClienteTelefono">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('TMOVClienteTelefono')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Celular: Column -->
+  <ng-container matColumnDef="TMOVClienteCelular">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "TMOVClientes.TMOVClienteCelular" | translate }}:</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.TMOVClienteCelular}}</mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "TMOVClientes.TMOVClienteCelular" | translate }}:
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.TMOVClienteCelular">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.TMOVClienteCelular">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('TMOVClienteCelular')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Email: Column -->
+  <ng-container matColumnDef="TMOVClienteEmail">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "TMOVClientes.TMOVClienteEmail" | translate }}:</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.TMOVClienteEmail}}</mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "TMOVClientes.TMOVClienteEmail" | translate }}:
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.TMOVClienteEmail">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.TMOVClienteEmail">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('TMOVClienteEmail')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Email Alternativo: Column -->
+  <ng-container matColumnDef="TMOVClienteEmailAlternativo">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "TMOVClientes.TMOVClienteEmailAlternativo" | translate }}:</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.TMOVClienteEmailAlternativo}}</mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "TMOVClientes.TMOVClienteEmailAlternativo" | translate }}:
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.TMOVClienteEmailAlternativo">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.TMOVClienteEmailAlternativo">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('TMOVClienteEmailAlternativo')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Ocupacion: Column -->
+  <ng-container matColumnDef="TMOVClienteOcupacion">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "TMOVClientes.TMOVClienteOcupacion" | translate }}:</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.TMOVClienteOcupacion}}</mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "TMOVClientes.TMOVClienteOcupacion" | translate }}:
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.TMOVClienteOcupacion">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.TMOVClienteOcupacion">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('TMOVClienteOcupacion')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Pais Residencia: Column -->
+  <ng-container matColumnDef="TMOVClientePaisResidencia">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "TMOVClientes.TMOVClientePaisResidencia" | translate }}:</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.TMOVClientePaisResidencia}}</mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "TMOVClientes.TMOVClientePaisResidencia" | translate }}:
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.TMOVClientePaisResidencia">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.TMOVClientePaisResidencia">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('TMOVClientePaisResidencia')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Estado: Column -->
+  <ng-container matColumnDef="TMOVClienteEstado">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "TMOVClientes.TMOVClienteEstado" | translate }}:</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.TMOVClienteEstado}}</mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "TMOVClientes.TMOVClienteEstado" | translate }}:
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.TMOVClienteEstado">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.TMOVClienteEstado">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('TMOVClienteEstado')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onSelect($event, row);"></mat-row>
+</mat-table>
+<mat-toolbar>
+    <mat-toolbar-row>
+      <mat-icon (click)="add()">add</mat-icon>
+      <mat-icon (click)="edit()">edit</mat-icon>
+      <mat-icon (click)="refresh()">refresh</mat-icon>
+      <mat-icon (click)="exportCsv(dataSource)" title="Export as CSV">save_alt</mat-icon>
+      <span class="example-spacer"></span>
+      <mat-paginator class="paginator" [length]="rows.length" [pageSize]="_pageSize" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    </mat-toolbar-row>
+</mat-toolbar>

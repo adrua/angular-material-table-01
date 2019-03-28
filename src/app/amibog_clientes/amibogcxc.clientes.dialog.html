@@ -1,0 +1,222 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>{{ 'AMIBOGCXCClientes._titulo' | translate }}</mat-card-title>
+    </mat-card-header> 
+    <mat-card-content>
+        <form [formGroup]="AMIBOGCXC_ClientesForm" (ngSubmit)="onSubmit(AMIBOGCXC_ClientesForm.value)">
+            <div class="dialog-content">
+                <div class="row">
+                    <div class="col-sm-12 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="number"  
+                                    formControlName="ClienteAMIBOGCXCId" 
+                                    placeholder="{{ 'AMIBOGCXCClientes.ClienteAMIBOGCXCId' | translate }}!" />
+                        </mat-form-field>
+                        <mat-error *ngIf="AMIBOGCXC_ClientesForm.controls.ClienteAMIBOGCXCId.invalid && AMIBOGCXC_ClientesForm.controls.ClienteAMIBOGCXCId.touched">{{ "AMIBOGCXCClientes.ClienteAMIBOGCXCIdError" | translate }}</mat-error>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-xs-12">                
+                        <label>{{ "AMIBOGCXCClientes.ClienteAMIBOGCXCTipoId" | translate }}:</label>
+                        <mat-radio-group 
+                            formControlName="ClienteAMIBOGCXCTipoId">
+                          <mat-radio-button value="CC">{{ "AMIBOGCXCClientes._ClienteAMIBOGCXCTipoId.Cedula_Ciduadania" | translate }}</mat-radio-button>
+                          <mat-radio-button value="CE">{{ "AMIBOGCXCClientes._ClienteAMIBOGCXCTipoId.Cedula_Extranjeria" | translate }}</mat-radio-button>
+                          <mat-radio-button value="PA">{{ "AMIBOGCXCClientes._ClienteAMIBOGCXCTipoId.Pasaporte" | translate }}</mat-radio-button>
+                          <mat-radio-button value="NIT" selected="true">{{ "AMIBOGCXCClientes._ClienteAMIBOGCXCTipoId.N.I.T" | translate }}</mat-radio-button>
+                          <mat-radio-button value="RUT">{{ "AMIBOGCXCClientes._ClienteAMIBOGCXCTipoId.R.U.T" | translate }}</mat-radio-button>
+                        </mat-radio-group >
+                        <mat-error *ngIf="AMIBOGCXC_ClientesForm.controls.ClienteAMIBOGCXCTipoId.invalid && AMIBOGCXC_ClientesForm.controls.ClienteAMIBOGCXCTipoId.touched">{{ "AMIBOGCXCClientes.ClienteAMIBOGCXCTipoIdError" | translate }}</mat-error>
+                    </div>                
+                    <div class="col-sm-6 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  
+                                    formControlName="ClienteAMIBOGCXCIdTributario" 
+                                    placeholder="{{ 'AMIBOGCXCClientes.ClienteAMIBOGCXCIdTributario' | translate }}:" />
+                        </mat-form-field>
+                        <mat-error *ngIf="AMIBOGCXC_ClientesForm.controls.ClienteAMIBOGCXCIdTributario.invalid && AMIBOGCXC_ClientesForm.controls.ClienteAMIBOGCXCIdTributario.touched">{{ "AMIBOGCXCClientes.ClienteAMIBOGCXCIdTributarioError" | translate }}</mat-error>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  
+                                    formControlName="ClienteAMIBOGCXCRazonSocial" 
+                                    placeholder="{{ 'AMIBOGCXCClientes.ClienteAMIBOGCXCRazonSocial' | translate }}:" />
+                        </mat-form-field>
+                        <mat-error *ngIf="AMIBOGCXC_ClientesForm.controls.ClienteAMIBOGCXCRazonSocial.invalid && AMIBOGCXC_ClientesForm.controls.ClienteAMIBOGCXCRazonSocial.touched">{{ "AMIBOGCXCClientes.ClienteAMIBOGCXCRazonSocialError" | translate }}</mat-error>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  
+                                    formControlName="ClienteAMIBOGCXCPrimerApellido" 
+                                    placeholder="{{ 'AMIBOGCXCClientes.ClienteAMIBOGCXCPrimerApellido' | translate }}:" />
+                        </mat-form-field>
+                        <mat-error *ngIf="AMIBOGCXC_ClientesForm.controls.ClienteAMIBOGCXCPrimerApellido.invalid && AMIBOGCXC_ClientesForm.controls.ClienteAMIBOGCXCPrimerApellido.touched">{{ "AMIBOGCXCClientes.ClienteAMIBOGCXCPrimerApellidoError" | translate }}</mat-error>
+                    </div>
+                    <div class="col-sm-6 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  
+                                    formControlName="ClienteAMIBOGCXCSegundoApellido" 
+                                    placeholder="{{ 'AMIBOGCXCClientes.ClienteAMIBOGCXCSegundoApellido' | translate }}?" />
+                        </mat-form-field>
+                        <mat-error *ngIf="AMIBOGCXC_ClientesForm.controls.ClienteAMIBOGCXCSegundoApellido.invalid && AMIBOGCXC_ClientesForm.controls.ClienteAMIBOGCXCSegundoApellido.touched">{{ "AMIBOGCXCClientes.ClienteAMIBOGCXCSegundoApellidoError" | translate }}</mat-error>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  
+                                    formControlName="ClienteAMIBOGCXCPrimerNombre" 
+                                    placeholder="{{ 'AMIBOGCXCClientes.ClienteAMIBOGCXCPrimerNombre' | translate }}:" />
+                        </mat-form-field>
+                        <mat-error *ngIf="AMIBOGCXC_ClientesForm.controls.ClienteAMIBOGCXCPrimerNombre.invalid && AMIBOGCXC_ClientesForm.controls.ClienteAMIBOGCXCPrimerNombre.touched">{{ "AMIBOGCXCClientes.ClienteAMIBOGCXCPrimerNombreError" | translate }}</mat-error>
+                    </div>
+                    <div class="col-sm-6 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  
+                                    formControlName="ClienteAMIBOGCXCSegundoNombre" 
+                                    placeholder="{{ 'AMIBOGCXCClientes.ClienteAMIBOGCXCSegundoNombre' | translate }}?" />
+                        </mat-form-field>
+                        <mat-error *ngIf="AMIBOGCXC_ClientesForm.controls.ClienteAMIBOGCXCSegundoNombre.invalid && AMIBOGCXC_ClientesForm.controls.ClienteAMIBOGCXCSegundoNombre.touched">{{ "AMIBOGCXCClientes.ClienteAMIBOGCXCSegundoNombreError" | translate }}</mat-error>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  
+                                    formControlName="ClienteAMIBOGCXCDireccion" 
+                                    placeholder="{{ 'AMIBOGCXCClientes.ClienteAMIBOGCXCDireccion' | translate }}:" />
+                        </mat-form-field>
+                        <mat-error *ngIf="AMIBOGCXC_ClientesForm.controls.ClienteAMIBOGCXCDireccion.invalid && AMIBOGCXC_ClientesForm.controls.ClienteAMIBOGCXCDireccion.touched">{{ "AMIBOGCXCClientes.ClienteAMIBOGCXCDireccionError" | translate }}</mat-error>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2 col-xs-12" style="display: none;">
+                        <mat-form-field>
+                            <input matInput type="number"  readonly
+                                    formControlName="CiudadDepartamentoId" 
+                                    placeholder="{{ 'AMIBOGCXCClientes.CiudadDepartamentoId' | translate }}:" />
+                        </mat-form-field>
+                        <mat-error *ngIf="AMIBOGCXC_ClientesForm.controls.CiudadDepartamentoId.invalid && AMIBOGCXC_ClientesForm.controls.CiudadDepartamentoId.touched">{{ "AMIBOGCXCClientes.CiudadDepartamentoIdError" | translate }}</mat-error>
+                    </div>
+                    <div class="col-sm-2 col-xs-12" style="display: none;">
+                        <mat-form-field>
+                            <input matInput type="number"  readonly
+                                    formControlName="Ciudadid" 
+                                    placeholder="{{ 'AMIBOGCXCClientes.Ciudadid' | translate }}:" />
+                        </mat-form-field>
+                        <mat-error *ngIf="AMIBOGCXC_ClientesForm.controls.Ciudadid.invalid && AMIBOGCXC_ClientesForm.controls.Ciudadid.touched">{{ "AMIBOGCXCClientes.CiudadidError" | translate }}</mat-error>
+                    </div>
+                    <div class="col-sm-6 col-xs-12">                
+                        <mat-form-field>
+                            <input matInput  
+                                    [matAutocomplete]="CiudadNombreCiudad"
+                                    [formControl]="CiudadNombreCiudadCtrl" 
+                                    placeholder="{{ 'AMIBOGCXCClientes.CiudadNombreCiudad' | translate }}:" />
+                        </mat-form-field>
+                        <mat-autocomplete #CiudadNombreCiudad="matAutocomplete">
+                            <mat-option *ngFor="let opt of filteredCiudadNombreCiudad" [value]="opt.label" (click)="selectCiudadNombreCiudad(opt);">
+                                {{ opt.label }}
+                            </mat-option>
+                        </mat-autocomplete>
+                        <mat-error *ngIf="CiudadNombreCiudadCtrl.invalid && CiudadNombreCiudadCtrl.touched">{{ "AMIBOGCXCClientes.CiudadNombreCiudadError" | translate }}</mat-error>
+                    </div>                
+                    <div class="col-sm-2 col-xs-12" style="display: none;">
+                        <mat-form-field>
+                            <input matInput type="text"  readonly
+                                    formControlName="CodigoCiiuId" 
+                                    placeholder="{{ 'AMIBOGCXCClientes.CodigoCiiuId' | translate }}:" />
+                        </mat-form-field>
+                        <mat-error *ngIf="AMIBOGCXC_ClientesForm.controls.CodigoCiiuId.invalid && AMIBOGCXC_ClientesForm.controls.CodigoCiiuId.touched">{{ "AMIBOGCXCClientes.CodigoCiiuIdError" | translate }}</mat-error>
+                    </div>
+                    <div class="col-sm-6 col-xs-12">                
+                        <mat-form-field>
+                            <input matInput  
+                                    [matAutocomplete]="CodigoCiiuDescripcion"
+                                    [formControl]="CodigoCiiuDescripcionCtrl" 
+                                    placeholder="{{ 'AMIBOGCXCClientes.CodigoCiiuDescripcion' | translate }}:" />
+                        </mat-form-field>
+                        <mat-autocomplete #CodigoCiiuDescripcion="matAutocomplete">
+                            <mat-option *ngFor="let opt of filteredCodigoCiiuDescripcion" [value]="opt.label" (click)="selectCodigoCiiuDescripcion(opt);">
+                                {{ opt.label }}
+                            </mat-option>
+                        </mat-autocomplete>
+                        <mat-error *ngIf="CodigoCiiuDescripcionCtrl.invalid && CodigoCiiuDescripcionCtrl.touched">{{ "AMIBOGCXCClientes.CodigoCiiuDescripcionError" | translate }}</mat-error>
+                    </div>                
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  
+                                    formControlName="ClienteAMIBOGCXCContactoCompras" 
+                                    placeholder="{{ 'AMIBOGCXCClientes.ClienteAMIBOGCXCContactoCompras' | translate }}?" />
+                        </mat-form-field>
+                        <mat-error *ngIf="AMIBOGCXC_ClientesForm.controls.ClienteAMIBOGCXCContactoCompras.invalid && AMIBOGCXC_ClientesForm.controls.ClienteAMIBOGCXCContactoCompras.touched">{{ "AMIBOGCXCClientes.ClienteAMIBOGCXCContactoComprasError" | translate }}</mat-error>
+                    </div>
+                    <div class="col-sm-6 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  
+                                    formControlName="ClienteAMIBOGCXCCorreoCompras" 
+                                    placeholder="{{ 'AMIBOGCXCClientes.ClienteAMIBOGCXCCorreoCompras' | translate }}?" />
+                        </mat-form-field>
+                        <mat-error *ngIf="AMIBOGCXC_ClientesForm.controls.ClienteAMIBOGCXCCorreoCompras.invalid && AMIBOGCXC_ClientesForm.controls.ClienteAMIBOGCXCCorreoCompras.touched">{{ "AMIBOGCXCClientes.ClienteAMIBOGCXCCorreoComprasError" | translate }}</mat-error>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  
+                                    formControlName="ClienteAMIBOGCXCContactoTesoreria" 
+                                    placeholder="{{ 'AMIBOGCXCClientes.ClienteAMIBOGCXCContactoTesoreria' | translate }}?" />
+                        </mat-form-field>
+                        <mat-error *ngIf="AMIBOGCXC_ClientesForm.controls.ClienteAMIBOGCXCContactoTesoreria.invalid && AMIBOGCXC_ClientesForm.controls.ClienteAMIBOGCXCContactoTesoreria.touched">{{ "AMIBOGCXCClientes.ClienteAMIBOGCXCContactoTesoreriaError" | translate }}</mat-error>
+                    </div>
+                    <div class="col-sm-6 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  
+                                    formControlName="ClienteAMIBOGCXCCorreoTesoreria" 
+                                    placeholder="{{ 'AMIBOGCXCClientes.ClienteAMIBOGCXCCorreoTesoreria' | translate }}?" />
+                        </mat-form-field>
+                        <mat-error *ngIf="AMIBOGCXC_ClientesForm.controls.ClienteAMIBOGCXCCorreoTesoreria.invalid && AMIBOGCXC_ClientesForm.controls.ClienteAMIBOGCXCCorreoTesoreria.touched">{{ "AMIBOGCXCClientes.ClienteAMIBOGCXCCorreoTesoreriaError" | translate }}</mat-error>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  
+                                    formControlName="ClienteAMIBOGCXCTelefono" 
+                                    placeholder="{{ 'AMIBOGCXCClientes.ClienteAMIBOGCXCTelefono' | translate }}:" />
+                        </mat-form-field>
+                        <mat-error *ngIf="AMIBOGCXC_ClientesForm.controls.ClienteAMIBOGCXCTelefono.invalid && AMIBOGCXC_ClientesForm.controls.ClienteAMIBOGCXCTelefono.touched">{{ "AMIBOGCXCClientes.ClienteAMIBOGCXCTelefonoError" | translate }}</mat-error>
+                    </div>
+                    <div class="col-sm-6 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  
+                                    formControlName="ClienteAMIBOGCXCCelular" 
+                                    placeholder="{{ 'AMIBOGCXCClientes.ClienteAMIBOGCXCCelular' | translate }}?" />
+                        </mat-form-field>
+                        <mat-error *ngIf="AMIBOGCXC_ClientesForm.controls.ClienteAMIBOGCXCCelular.invalid && AMIBOGCXC_ClientesForm.controls.ClienteAMIBOGCXCCelular.touched">{{ "AMIBOGCXCClientes.ClienteAMIBOGCXCCelularError" | translate }}</mat-error>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  
+                                    formControlName="ClienteAMIBOGCXCDescuento" 
+                                    placeholder="{{ 'AMIBOGCXCClientes.ClienteAMIBOGCXCDescuento' | translate }}:" />
+                        </mat-form-field>
+                        <mat-error *ngIf="AMIBOGCXC_ClientesForm.controls.ClienteAMIBOGCXCDescuento.invalid && AMIBOGCXC_ClientesForm.controls.ClienteAMIBOGCXCDescuento.touched">{{ "AMIBOGCXCClientes.ClienteAMIBOGCXCDescuentoError" | translate }}</mat-error>
+                    </div>
+              </div>
+            </div>
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <mat-spinner *ngIf="_proc" style="width: 15px; height:15px"></mat-spinner>
+        <button mat-button (click)="onSubmit(AMIBOGCXC_ClientesForm.value);" [disabled]="!AMIBOGCXC_ClientesForm.valid">{{ "AMIBOGCXCClientes._guardar" | translate  }}</button>
+        <button mat-button mat-dialog-close>{{ "AMIBOGCXCClientes._cancelar" | translate  }}</button>
+    </mat-card-actions>
+</mat-card>

@@ -1,0 +1,843 @@
+<mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>
+<mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+<mat-table [dataSource]="rows" class="mat-elevation-z8" matSort>
+    <!-- Codigo Nuevo! Column -->
+  <ng-container matColumnDef="CECAClienteCodigoNuevo">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "CECAClientes.CECAClienteCodigoNuevo" | translate }}!</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.CECAClienteCodigoNuevo}}</mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "CECAClientes.CECAClienteCodigoNuevo" | translate }}!
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.CECAClienteCodigoNuevo">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.CECAClienteCodigoNuevo">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('CECAClienteCodigoNuevo')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Viejo: Column -->
+  <ng-container matColumnDef="CECAClienteViejo">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "CECAClientes.CECAClienteViejo" | translate }}:</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.CECAClienteViejo}}</mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "CECAClientes.CECAClienteViejo" | translate }}:
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.CECAClienteViejo">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.CECAClienteViejo">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('CECAClienteViejo')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- No Cedula: Column -->
+  <ng-container matColumnDef="CECAClienteNoCedula">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "CECAClientes.CECAClienteNoCedula" | translate }}:</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.CECAClienteNoCedula}}</mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "CECAClientes.CECAClienteNoCedula" | translate }}:
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.CECAClienteNoCedula">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.CECAClienteNoCedula">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('CECAClienteNoCedula')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Relacion Actual: Column -->
+  <ng-container matColumnDef="CECAClienteRelacionActual">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "CECAClientes.CECAClienteRelacionActual" | translate }}:</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.CECAClienteRelacionActual}}</mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "CECAClientes.CECAClienteRelacionActual" | translate }}:
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.CECAClienteRelacionActual">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.CECAClienteRelacionActual">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('CECAClienteRelacionActual')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Titulo: Column -->
+  <ng-container matColumnDef="CECAClienteTitulo">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "CECAClientes.CECAClienteTitulo" | translate }}:</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.CECAClienteTitulo}}</mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "CECAClientes.CECAClienteTitulo" | translate }}:
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.CECAClienteTitulo">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.CECAClienteTitulo">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('CECAClienteTitulo')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Provincia: Column -->
+  <ng-container matColumnDef="CECAClienteProvincia">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "CECAClientes.CECAClienteProvincia" | translate }}:</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.CECAClienteProvincia}}</mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "CECAClientes.CECAClienteProvincia" | translate }}:
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.CECAClienteProvincia">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.CECAClienteProvincia">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('CECAClienteProvincia')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Primer Apellido: Column -->
+  <ng-container matColumnDef="CECAClientePrimerApellido">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "CECAClientes.CECAClientePrimerApellido" | translate }}:</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.CECAClientePrimerApellido}}</mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "CECAClientes.CECAClientePrimerApellido" | translate }}:
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.CECAClientePrimerApellido">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.CECAClientePrimerApellido">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('CECAClientePrimerApellido')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Canton: Column -->
+  <ng-container matColumnDef="CECAClienteCanton">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "CECAClientes.CECAClienteCanton" | translate }}:</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.CECAClienteCanton}}</mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "CECAClientes.CECAClienteCanton" | translate }}:
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.CECAClienteCanton">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.CECAClienteCanton">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('CECAClienteCanton')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Segundo Apellido: Column -->
+  <ng-container matColumnDef="CECAClienteSegundoApellido">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "CECAClientes.CECAClienteSegundoApellido" | translate }}:</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.CECAClienteSegundoApellido}}</mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "CECAClientes.CECAClienteSegundoApellido" | translate }}:
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.CECAClienteSegundoApellido">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.CECAClienteSegundoApellido">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('CECAClienteSegundoApellido')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Distrito: Column -->
+  <ng-container matColumnDef="CECAClienteDistrito">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "CECAClientes.CECAClienteDistrito" | translate }}:</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.CECAClienteDistrito}}</mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "CECAClientes.CECAClienteDistrito" | translate }}:
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.CECAClienteDistrito">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.CECAClienteDistrito">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('CECAClienteDistrito')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Nombre: Column -->
+  <ng-container matColumnDef="CECAClienteNombre">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "CECAClientes.CECAClienteNombre" | translate }}:</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.CECAClienteNombre}}</mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "CECAClientes.CECAClienteNombre" | translate }}:
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.CECAClienteNombre">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.CECAClienteNombre">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('CECAClienteNombre')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Tipo Cuenta: Column -->
+  <ng-container matColumnDef="CECAClienteTipoCuenta">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "CECAClientes.CECAClienteTipoCuenta" | translate }}:</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.CECAClienteTipoCuenta}}</mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "CECAClientes.CECAClienteTipoCuenta" | translate }}:
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.CECAClienteTipoCuenta">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.CECAClienteTipoCuenta">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('CECAClienteTipoCuenta')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Representante: Column -->
+  <ng-container matColumnDef="CECAClienteRepresentante">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "CECAClientes.CECAClienteRepresentante" | translate }}:</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.CECAClienteRepresentante}}</mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "CECAClientes.CECAClienteRepresentante" | translate }}:
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.CECAClienteRepresentante">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.CECAClienteRepresentante">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('CECAClienteRepresentante')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Cuenta Principal: Column -->
+  <ng-container matColumnDef="CECAClienteCuentaPrincipal">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "CECAClientes.CECAClienteCuentaPrincipal" | translate }}:</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.CECAClienteCuentaPrincipal}}</mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "CECAClientes.CECAClienteCuentaPrincipal" | translate }}:
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.CECAClienteCuentaPrincipal">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.CECAClienteCuentaPrincipal">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('CECAClienteCuentaPrincipal')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Fecha Nacimiento: Column -->
+  <ng-container matColumnDef="CECAClienteFechaNacimiento">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "CECAClientes.CECAClienteFechaNacimiento" | translate }}:</mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.CECAClienteFechaNacimiento | date}} </mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "CECAClientes.CECAClienteFechaNacimiento" | translate }}:
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.CECAClienteFechaNacimiento">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.CECAClienteFechaNacimiento">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('CECAClienteFechaNacimiento')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Direccion Postal: Column -->
+  <ng-container matColumnDef="CECAClienteDireccionPostal">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "CECAClientes.CECAClienteDireccionPostal" | translate }}:</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.CECAClienteDireccionPostal}}</mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "CECAClientes.CECAClienteDireccionPostal" | translate }}:
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.CECAClienteDireccionPostal">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.CECAClienteDireccionPostal">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('CECAClienteDireccionPostal')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Telefono: Column -->
+  <ng-container matColumnDef="CECAClienteTelefono">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "CECAClientes.CECAClienteTelefono" | translate }}:</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.CECAClienteTelefono}}</mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "CECAClientes.CECAClienteTelefono" | translate }}:
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.CECAClienteTelefono">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.CECAClienteTelefono">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('CECAClienteTelefono')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Tipo: Column -->
+  <ng-container matColumnDef="CECAClienteTipo">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "CECAClientes.CECAClienteTipo" | translate }}:</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.CECAClienteTipo}}</mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "CECAClientes.CECAClienteTipo" | translate }}:
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.CECAClienteTipo">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.CECAClienteTipo">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('CECAClienteTipo')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Recibidor: Column -->
+  <ng-container matColumnDef="CECAClienteRecibidor">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "CECAClientes.CECAClienteRecibidor" | translate }}:</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.CECAClienteRecibidor}}</mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "CECAClientes.CECAClienteRecibidor" | translate }}:
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.CECAClienteRecibidor">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.CECAClienteRecibidor">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('CECAClienteRecibidor')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Cuenta Congelada: Column -->
+  <ng-container matColumnDef="CECAClienteCuentaCongelada">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "CECAClientes.CECAClienteCuentaCongelada" | translate }}:</mat-header-cell>
+    <mat-cell *matCellDef="let row"> 
+        <mat-checkbox [(ngModel)]="row.CECAClienteCuentaCongelada"></mat-checkbox>
+    </mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "CECAClientes.CECAClienteCuentaCongelada" | translate }}:
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.CECAClienteCuentaCongelada">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.CECAClienteCuentaCongelada">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('CECAClienteCuentaCongelada')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Promotor: Column -->
+  <ng-container matColumnDef="CECAClientePromotor">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "CECAClientes.CECAClientePromotor" | translate }}:</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.CECAClientePromotor}}</mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "CECAClientes.CECAClientePromotor" | translate }}:
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.CECAClientePromotor">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.CECAClientePromotor">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('CECAClientePromotor')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Zona: Column -->
+  <ng-container matColumnDef="CECAClienteZona">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "CECAClientes.CECAClienteZona" | translate }}:</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.CECAClienteZona}}</mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "CECAClientes.CECAClienteZona" | translate }}:
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.CECAClienteZona">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.CECAClienteZona">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('CECAClienteZona')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Sobregiro: Column -->
+  <ng-container matColumnDef="CECAClienteSobregiro">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "CECAClientes.CECAClienteSobregiro" | translate }}:</mat-header-cell>
+    <mat-cell *matCellDef="let row"> 
+        <mat-checkbox [(ngModel)]="row.CECAClienteSobregiro"></mat-checkbox>
+    </mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "CECAClientes.CECAClienteSobregiro" | translate }}:
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.CECAClienteSobregiro">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.CECAClienteSobregiro">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('CECAClienteSobregiro')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Reservado: Column -->
+  <ng-container matColumnDef="CECAClienteReservado">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "CECAClientes.CECAClienteReservado" | translate }}:</mat-header-cell>
+    <mat-cell *matCellDef="let row"> 
+        <mat-checkbox [(ngModel)]="row.CECAClienteReservado"></mat-checkbox>
+    </mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "CECAClientes.CECAClienteReservado" | translate }}:
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.CECAClienteReservado">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.CECAClienteReservado">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('CECAClienteReservado')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Cobro Judicial: Column -->
+  <ng-container matColumnDef="CECAClienteCobroJudicial">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "CECAClientes.CECAClienteCobroJudicial" | translate }}:</mat-header-cell>
+    <mat-cell *matCellDef="let row"> 
+        <mat-checkbox [(ngModel)]="row.CECAClienteCobroJudicial"></mat-checkbox>
+    </mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "CECAClientes.CECAClienteCobroJudicial" | translate }}:
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.CECAClienteCobroJudicial">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.CECAClienteCobroJudicial">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('CECAClienteCobroJudicial')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Embargado: Column -->
+  <ng-container matColumnDef="CECAClienteEmbargado">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "CECAClientes.CECAClienteEmbargado" | translate }}:</mat-header-cell>
+    <mat-cell *matCellDef="let row"> 
+        <mat-checkbox [(ngModel)]="row.CECAClienteEmbargado"></mat-checkbox>
+    </mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "CECAClientes.CECAClienteEmbargado" | translate }}:
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.CECAClienteEmbargado">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.CECAClienteEmbargado">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('CECAClienteEmbargado')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Paga Subflete: Column -->
+  <ng-container matColumnDef="CECAClientePagaSubflete">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "CECAClientes.CECAClientePagaSubflete" | translate }}:</mat-header-cell>
+    <mat-cell *matCellDef="let row"> 
+        <mat-checkbox [(ngModel)]="row.CECAClientePagaSubflete"></mat-checkbox>
+    </mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "CECAClientes.CECAClientePagaSubflete" | translate }}:
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.CECAClientePagaSubflete">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.CECAClientePagaSubflete">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('CECAClientePagaSubflete')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+    <!-- Repela Permitida: Column -->
+  <ng-container matColumnDef="CECAClienteRepelaPermitida">
+    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "CECAClientes.CECAClienteRepelaPermitida" | translate }}:</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.CECAClienteRepelaPermitida}}</mat-cell>
+    <mat-menu #menu>
+      <div mat-menu-item mat-filter-item [disableRipple]="true" class="menu-title">
+        {{ "CECAClientes.CECAClienteRepelaPermitida" | translate }}:
+      </div>
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <mat-select [panelClass]="'mat-elevation-z10'" placeholder='Conditions' [(value)]="searchCondition.CECAClienteRepelaPermitida">
+            <mat-option *ngFor="let  condition of conditionsList" [value]="condition.value">{{condition.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <mat-form-field>
+          <input matInput placeholder="Value" [(ngModel)]="searchValue.CECAClienteRepelaPermitida">
+        </mat-form-field>
+      </div>
+
+      <div mat-menu-item mat-filter-item [disableRipple]="true">
+        <button mat-raised-button (click)="clearColumn('CECAClienteRepelaPermitida')">Clear</button>
+        <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+      </div>
+    </mat-menu>
+  </ng-container>
+
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onSelect($event, row);"></mat-row>
+</mat-table>
+<mat-toolbar>
+    <mat-toolbar-row>
+      <mat-icon (click)="add()">add</mat-icon>
+      <mat-icon (click)="edit()">edit</mat-icon>
+      <mat-icon (click)="refresh()">refresh</mat-icon>
+      <mat-icon (click)="exportCsv(dataSource)" title="Export as CSV">save_alt</mat-icon>
+      <span class="example-spacer"></span>
+      <mat-paginator class="paginator" [length]="rows.length" [pageSize]="_pageSize" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    </mat-toolbar-row>
+</mat-toolbar>

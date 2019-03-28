@@ -1,0 +1,30 @@
+<nav>
+<button mat-icon-button [matMenuTriggerFor]="menu">
+  <mat-icon>more_vert</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>
+    <mat-icon>dialpad</mat-icon>
+    <span> <a routerLink="/ceca-clientes" routerLinkActive="active">CECA Clientes</a></span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>voicemail</mat-icon>
+    <span> <a routerLink="/tmov-clientes" routerLinkActive="active">TMOV Clientes</a></span>
+  </button>
+  <button mat-menu-item [matMenuTriggerFor]="amibogcxc">
+    <mat-icon>notifications_off</mat-icon>
+    <span>AMIBOGCXC</span>
+  </button>
+</mat-menu>
+<mat-menu #amibogcxc="matMenu">
+  <button mat-menu-item>
+    <mat-icon>face</mat-icon>
+    <span> <a routerLink="/amibog-clientes" routerLinkActive="active">Clientes</a></span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>ballot</mat-icon>
+    <span> <a routerLink="/amibog-facturas" routerLinkActive="active">Facturas</a></span>
+  </button>
+</mat-menu>
+</nav>
+<router-outlet></router-outlet>

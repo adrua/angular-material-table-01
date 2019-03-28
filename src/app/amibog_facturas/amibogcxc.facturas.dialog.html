@@ -1,0 +1,119 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>{{ 'AMIBOGCXCFacturas._titulo' | translate }}</mat-card-title>
+    </mat-card-header> 
+    <mat-card-content>
+        <form [formGroup]="AMIBOGCXC_FacturasForm" (ngSubmit)="onSubmit(AMIBOGCXC_FacturasForm.value)">
+            <div class="dialog-content">
+                <div class="row">
+                    <div class="col-sm-6 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="number"  
+                                    formControlName="AMIBOGCXCFacturaid" 
+                                    placeholder="{{ 'AMIBOGCXCFacturas.AMIBOGCXCFacturaid' | translate }}!" />
+                        </mat-form-field>
+                        <mat-error *ngIf="AMIBOGCXC_FacturasForm.controls.AMIBOGCXCFacturaid.invalid && AMIBOGCXC_FacturasForm.controls.AMIBOGCXCFacturaid.touched">{{ "AMIBOGCXCFacturas.AMIBOGCXCFacturaidError" | translate }}</mat-error>
+                    </div>
+                    <div class="col-sm-6 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput [matDatepicker]="myDatepickerAMIBOGCXCFacturaFecha"   displayFormat="MMM DD/YYYY" 
+                                    formControlName="AMIBOGCXCFacturaFecha" 
+                                    placeholder="{{ 'AMIBOGCXCFacturas.AMIBOGCXCFacturaFecha' | translate }}:" />
+                            <mat-datepicker-toggle matSuffix [for]="myDatepickerAMIBOGCXCFacturaFecha"></mat-datepicker-toggle>
+                            <mat-datepicker #myDatepickerAMIBOGCXCFacturaFecha></mat-datepicker>
+                        </mat-form-field>
+                        <mat-error *ngIf="AMIBOGCXC_FacturasForm.controls.AMIBOGCXCFacturaFecha.invalid && AMIBOGCXC_FacturasForm.controls.AMIBOGCXCFacturaFecha.touched">{{ "AMIBOGCXCFacturas.AMIBOGCXCFacturaFechaError" | translate }}</mat-error>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-xs-12" style="display: none;">
+                        <mat-form-field>
+                            <input matInput type="number"  readonly
+                                    formControlName="ClienteAMIBOGCXCId" 
+                                    placeholder="{{ 'AMIBOGCXCFacturas.ClienteAMIBOGCXCId' | translate }}:" />
+                        </mat-form-field>
+                        <mat-error *ngIf="AMIBOGCXC_FacturasForm.controls.ClienteAMIBOGCXCId.invalid && AMIBOGCXC_FacturasForm.controls.ClienteAMIBOGCXCId.touched">{{ "AMIBOGCXCFacturas.ClienteAMIBOGCXCIdError" | translate }}</mat-error>
+                    </div>
+                    <div class="col-sm-6 col-xs-12">                
+                        <mat-form-field>
+                            <input matInput  
+                                    [matAutocomplete]="ClienteAMIBOGCXCRazonSocial"
+                                    [formControl]="ClienteAMIBOGCXCRazonSocialCtrl" 
+                                    placeholder="{{ 'AMIBOGCXCFacturas.ClienteAMIBOGCXCRazonSocial' | translate }}:" />
+                        </mat-form-field>
+                        <mat-autocomplete #ClienteAMIBOGCXCRazonSocial="matAutocomplete">
+                            <mat-option *ngFor="let opt of filteredClienteAMIBOGCXCRazonSocial" [value]="opt.label" (click)="selectClienteAMIBOGCXCRazonSocial(opt);">
+                                {{ opt.label }}
+                            </mat-option>
+                        </mat-autocomplete>
+                        <mat-error *ngIf="ClienteAMIBOGCXCRazonSocialCtrl.invalid && ClienteAMIBOGCXCRazonSocialCtrl.touched">{{ "AMIBOGCXCFacturas.ClienteAMIBOGCXCRazonSocialError" | translate }}</mat-error>
+                    </div>                
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-xs-12">                
+                        <label>{{ "AMIBOGCXCFacturas.AMIBOGCXCFacturaFormaPago" | translate }}:</label>
+                        <mat-radio-group 
+                            formControlName="AMIBOGCXCFacturaFormaPago">
+                          <mat-radio-button value="CO" selected="true">{{ "AMIBOGCXCFacturas._AMIBOGCXCFacturaFormaPago.Contado" | translate }}</mat-radio-button>
+                          <mat-radio-button value="EF">{{ "AMIBOGCXCFacturas._AMIBOGCXCFacturaFormaPago.Efectivo" | translate }}</mat-radio-button>
+                          <mat-radio-button value="CH">{{ "AMIBOGCXCFacturas._AMIBOGCXCFacturaFormaPago.Cheque" | translate }}</mat-radio-button>
+                          <mat-radio-button value="TR">{{ "AMIBOGCXCFacturas._AMIBOGCXCFacturaFormaPago.Transferencia" | translate }}</mat-radio-button>
+                        </mat-radio-group >
+                        <mat-error *ngIf="AMIBOGCXC_FacturasForm.controls.AMIBOGCXCFacturaFormaPago.invalid && AMIBOGCXC_FacturasForm.controls.AMIBOGCXCFacturaFormaPago.touched">{{ "AMIBOGCXCFacturas.AMIBOGCXCFacturaFormaPagoError" | translate }}</mat-error>
+                    </div>                
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  readonly
+                                    formControlName="AMIBOGCXCFacturaSubTotal" 
+                                    placeholder="{{ 'AMIBOGCXCFacturas.AMIBOGCXCFacturaSubTotal' | translate }}=" />
+                        </mat-form-field>
+                        <mat-error *ngIf="AMIBOGCXC_FacturasForm.controls.AMIBOGCXCFacturaSubTotal.invalid && AMIBOGCXC_FacturasForm.controls.AMIBOGCXCFacturaSubTotal.touched">{{ "AMIBOGCXCFacturas.AMIBOGCXCFacturaSubTotalError" | translate }}</mat-error>
+                    </div>
+                    <div class="col-sm-6 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  readonly
+                                    formControlName="AMIBOGCXCFacturaIva" 
+                                    placeholder="{{ 'AMIBOGCXCFacturas.AMIBOGCXCFacturaIva' | translate }}=" />
+                        </mat-form-field>
+                        <mat-error *ngIf="AMIBOGCXC_FacturasForm.controls.AMIBOGCXCFacturaIva.invalid && AMIBOGCXC_FacturasForm.controls.AMIBOGCXCFacturaIva.touched">{{ "AMIBOGCXCFacturas.AMIBOGCXCFacturaIvaError" | translate }}</mat-error>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  readonly
+                                    formControlName="AMIBOGCXCFacturaTotal" 
+                                    placeholder="{{ 'AMIBOGCXCFacturas.AMIBOGCXCFacturaTotal' | translate }}=" />
+                        </mat-form-field>
+                        <mat-error *ngIf="AMIBOGCXC_FacturasForm.controls.AMIBOGCXCFacturaTotal.invalid && AMIBOGCXC_FacturasForm.controls.AMIBOGCXCFacturaTotal.touched">{{ "AMIBOGCXCFacturas.AMIBOGCXCFacturaTotalError" | translate }}</mat-error>
+                    </div>
+                    <div class="col-sm-6 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  readonly
+                                    formControlName="AMIBOGCXCFacturaDescuento" 
+                                    placeholder="{{ 'AMIBOGCXCFacturas.AMIBOGCXCFacturaDescuento' | translate }}=" />
+                        </mat-form-field>
+                        <mat-error *ngIf="AMIBOGCXC_FacturasForm.controls.AMIBOGCXCFacturaDescuento.invalid && AMIBOGCXC_FacturasForm.controls.AMIBOGCXCFacturaDescuento.touched">{{ "AMIBOGCXCFacturas.AMIBOGCXCFacturaDescuentoError" | translate }}</mat-error>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  
+                                    formControlName="AMIBOGCXCFacturaObservaciones" 
+                                    placeholder="{{ 'AMIBOGCXCFacturas.AMIBOGCXCFacturaObservaciones' | translate }}?" />
+                        </mat-form-field>
+                        <mat-error *ngIf="AMIBOGCXC_FacturasForm.controls.AMIBOGCXCFacturaObservaciones.invalid && AMIBOGCXC_FacturasForm.controls.AMIBOGCXCFacturaObservaciones.touched">{{ "AMIBOGCXCFacturas.AMIBOGCXCFacturaObservacionesError" | translate }}</mat-error>
+                    </div>
+              </div>
+            </div>
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <mat-spinner *ngIf="_proc" style="width: 15px; height:15px"></mat-spinner>
+        <button mat-button (click)="onSubmit(AMIBOGCXC_FacturasForm.value);" [disabled]="!AMIBOGCXC_FacturasForm.valid">{{ "AMIBOGCXCFacturas._guardar" | translate  }}</button>
+        <button mat-button mat-dialog-close>{{ "AMIBOGCXCFacturas._cancelar" | translate  }}</button>
+    </mat-card-actions>
+</mat-card>

@@ -1,0 +1,49 @@
+.mat-card {
+  height: 90vh;
+}
+
+.dialog-content  {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 76vh;
+}
+
+.dialog-content::-webkit-scrollbar {
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+.dialog-content::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+.dialog-content::-webkit-scrollbar-thumb { 
+  border: 12px solid rgba(0, 0, 0, 0); 
+  background-clip: padding-box; 
+  -webkit-border-radius: 20px; 
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+
+.mat-autocomplete-panel::-webkit-scrollbar {
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+.mat-autocomplete-panel::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+.mat-autocomplete-panel::-webkit-scrollbar-thumb { 
+  border: 12px solid rgba(0, 0, 0, 0); 
+  background-clip: padding-box; 
+  -webkit-border-radius: 20px; 
+  background-color: rgba(0, 0, 0, 0.15);
+}
+ 

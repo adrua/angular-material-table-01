@@ -1,0 +1,141 @@
+<html>
+  <head>
+    <title>Angular App</title>
+  </head>
+  <body>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<base href="/">
+<div class="mat-app-background basic-container">
+  <app-root></app-root>
+</div>
+<span class="version-info">Current build: 7.3.4</span>
+
+<!-- Copyright 2019 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->
+<script>
+  String.prototype.getDate = function() {
+    var x = /([+\-]?[0-9]+)/.exec(this);
+    return new Date(parseInt(x[0]));
+  }
+
+  Window.CECA_CLientes = {
+        "CECAClienteCodigoNuevo" : "Codigo Nuevo",
+        "CECAClienteCodigoNuevoError" : "Codigo Nuevo invalido", 
+        "CECAClienteViejo" : "Viejo",
+        "CECAClienteViejoError" : "Viejo invalido", 
+        "CECAClienteNoCedula" : "No Cedula",
+        "CECAClienteNoCedulaError" : "No Cedula invalido", 
+        "CECAClienteRelacionActual" : "Relacion Actual",
+        "CECAClienteRelacionActualError" : "Relacion Actual invalido", 
+        "CECAClienteTitulo" : "Titulo",
+        "CECAClienteTituloError" : "Titulo invalido", 
+        "CECAClienteProvincia" : "Provincia",
+        "CECAClienteProvinciaError" : "Provincia invalido", 
+        "CECAClientePrimerApellido" : "Primer Apellido",
+        "CECAClientePrimerApellidoError" : "Primer Apellido invalido", 
+        "CECAClienteCanton" : "Canton",
+        "CECAClienteCantonError" : "Canton invalido", 
+        "CECAClienteSegundoApellido" : "Segundo Apellido",
+        "CECAClienteSegundoApellidoError" : "Segundo Apellido invalido", 
+        "CECAClienteDistrito" : "Distrito",
+        "CECAClienteDistritoError" : "Distrito invalido", 
+        "CECAClienteNombre" : "Nombre",
+        "CECAClienteNombreError" : "Nombre invalido", 
+        "CECAClienteTipoCuenta" : "Tipo Cuenta",
+        "CECAClienteTipoCuentaError" : "Tipo Cuenta invalido", 
+        "CECAClienteRepresentante" : "Representante",
+        "CECAClienteRepresentanteError" : "Representante invalido", 
+        "CECAClienteCuentaPrincipal" : "Cuenta Principal",
+        "CECAClienteCuentaPrincipalError" : "Cuenta Principal invalido", 
+        "CECAClienteFechaNacimiento" : "Fecha Nacimiento",
+        "CECAClienteFechaNacimientoError" : "Fecha Nacimiento invalido", 
+        "CECAClienteDireccionPostal" : "Direccion Postal",
+        "CECAClienteDireccionPostalError" : "Direccion Postal invalido", 
+        "CECAClienteTelefono" : "Telefono",
+        "CECAClienteTelefonoError" : "Telefono invalido", 
+        "CECAClienteTipo" : "Tipo",
+        "CECAClienteTipoError" : "Tipo invalido", 
+        "CECAClienteRecibidor" : "Recibidor",
+        "CECAClienteRecibidorError" : "Recibidor invalido", 
+        "CECAClienteCuentaCongelada" : "Cuenta Congelada",
+        "CECAClienteCuentaCongeladaError" : "Cuenta Congelada invalido", 
+        "CECAClientePromotor" : "Promotor",
+        "CECAClientePromotorError" : "Promotor invalido", 
+        "CECAClienteZona" : "Zona",
+        "CECAClienteZonaError" : "Zona invalido", 
+        "CECAClienteSobregiro" : "Sobregiro",
+        "CECAClienteSobregiroError" : "Sobregiro invalido", 
+        "CECAClienteReservado" : "Reservado",
+        "CECAClienteReservadoError" : "Reservado invalido", 
+        "CECAClienteCobroJudicial" : "Cobro Judicial",
+        "CECAClienteCobroJudicialError" : "Cobro Judicial invalido", 
+        "CECAClienteEmbargado" : "Embargado",
+        "CECAClienteEmbargadoError" : "Embargado invalido", 
+        "CECAClientePagaSubflete" : "Paga Subflete",
+        "CECAClientePagaSubfleteError" : "Paga Subflete invalido", 
+        "CECAClienteRepelaPermitida" : "Repela Permitida",
+        "CECAClienteRepelaPermitidaError" : "Repela Permitida invalido", 
+        "_guardar" : "Salvar y Seguir",
+        "_cancelar" : "Cancelar",
+        "_titulo" : "Clientes.CECA"
+    };
+    
+    Window.TMOV_Clientes = {
+        "TMOVClienteTipoDocumento" : "Tipo Documento",
+        "_TMOVClienteTipoDocumento" : {
+            "Cédula_de_ciudadania" : "Cédula de ciudadania",
+            "Cédula_de_Extranjería" : "Cédula de Extranjería",
+            "Tarjeta_de_Identidad" : "Tarjeta de Identidad",
+            "NIT" : "NIT",
+            "Pasaporte" : "Pasaporte",
+        },
+        "TMOVClienteTipoDocumentoError" : "Tipo Documento invalido", 
+        "TMOVClienteNumeroDocumento" : "Numero Documento",
+        "TMOVClienteNumeroDocumentoError" : "Numero Documento invalido", 
+        "TMOVClienteFecha" : "Fecha",
+        "TMOVClienteFechaError" : "Fecha invalido", 
+        "TMOVClienteNombres" : "Nombres",
+        "TMOVClienteNombresError" : "Nombres invalido", 
+        "TMOVClienteApellidos" : "Apellidos",
+        "TMOVClienteApellidosError" : "Apellidos invalido", 
+        "TMOVClienteNombreCompleto" : "Nombre Completo",
+        "TMOVClienteNombreCompletoError" : "Nombre Completo invalido", 
+        "TMOVClienteSexo" : "Sexo",
+        "_TMOVClienteSexo" : {
+            "Masculino" : "Masculino",
+            "Femenino" : "Femenino",
+            "Otro" : "Otro",
+        },
+        "TMOVClienteSexoError" : "Sexo invalido", 
+        "TMOVClienteFechaNacimiento" : "Fecha Nacimiento",
+        "TMOVClienteFechaNacimientoError" : "Fecha Nacimiento invalido", 
+        "GOVCOPaisId" : "Pais",
+        "GOVCOPaisIdError" : "Pais invalido", 
+        "GOVCOPaisNombre" : "Pais",
+        "GOVCOPaisNombreError" : "Pais invalido", 
+        "TMOVClienteTelefono" : "Telefono",
+        "TMOVClienteTelefonoError" : "Telefono invalido", 
+        "TMOVClienteCelular" : "Celular",
+        "TMOVClienteCelularError" : "Celular invalido", 
+        "TMOVClienteEmail" : "Email",
+        "TMOVClienteEmailError" : "Email invalido", 
+        "TMOVClienteEmailAlternativo" : "Email Alternativo",
+        "TMOVClienteEmailAlternativoError" : "Email Alternativo invalido", 
+        "TMOVClienteOcupacion" : "Ocupacion",
+        "TMOVClienteOcupacionError" : "Ocupacion invalido", 
+        "TMOVClientePaisResidencia" : "Pais Residencia",
+        "TMOVClientePaisResidenciaError" : "Pais Residencia invalido", 
+        "TMOVClienteEstado" : "Estado",
+        "_TMOVClienteEstado" : {
+            "Activo" : "Activo",
+            "Inactivo" : "Inactivo",
+        },
+        "TMOVClienteEstadoError" : "Estado invalido", 
+        "_guardar" : "Salvar y Seguir",
+        "_cancelar" : "Cancelar",
+        "_titulo" : "Clientes.TMOV"
+    }
+</script>
+  </body>
+</html>

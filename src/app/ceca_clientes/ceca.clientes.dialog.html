@@ -1,0 +1,261 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>{{ 'CECAClientes._titulo' | translate }}</mat-card-title>
+    </mat-card-header> 
+    <mat-card-content>
+        <form [formGroup]="CECA_ClientesForm" (ngSubmit)="onSubmit(CECA_ClientesForm.value)">
+            <div class="dialog-content">
+                <div class="row">
+                    <div class="col-sm-6 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  
+                                    formControlName="CECAClienteCodigoNuevo" 
+                                    placeholder="{{ 'CECAClientes.CECAClienteCodigoNuevo' | translate }}!" />
+                        </mat-form-field>
+                        <mat-error *ngIf="CECA_ClientesForm.controls.CECAClienteCodigoNuevo.invalid && CECA_ClientesForm.controls.CECAClienteCodigoNuevo.touched">{{ "CECAClientes.CECAClienteCodigoNuevoError" | translate }}</mat-error>
+                    </div>
+                    <div class="col-sm-6 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  
+                                    formControlName="CECAClienteViejo" 
+                                    placeholder="{{ 'CECAClientes.CECAClienteViejo' | translate }}:" />
+                        </mat-form-field>
+                        <mat-error *ngIf="CECA_ClientesForm.controls.CECAClienteViejo.invalid && CECA_ClientesForm.controls.CECAClienteViejo.touched">{{ "CECAClientes.CECAClienteViejoError" | translate }}</mat-error>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  
+                                    formControlName="CECAClienteNoCedula" 
+                                    placeholder="{{ 'CECAClientes.CECAClienteNoCedula' | translate }}:" />
+                        </mat-form-field>
+                        <mat-error *ngIf="CECA_ClientesForm.controls.CECAClienteNoCedula.invalid && CECA_ClientesForm.controls.CECAClienteNoCedula.touched">{{ "CECAClientes.CECAClienteNoCedulaError" | translate }}</mat-error>
+                    </div>
+                    <div class="col-sm-6 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  
+                                    formControlName="CECAClienteRelacionActual" 
+                                    placeholder="{{ 'CECAClientes.CECAClienteRelacionActual' | translate }}:" />
+                        </mat-form-field>
+                        <mat-error *ngIf="CECA_ClientesForm.controls.CECAClienteRelacionActual.invalid && CECA_ClientesForm.controls.CECAClienteRelacionActual.touched">{{ "CECAClientes.CECAClienteRelacionActualError" | translate }}</mat-error>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  
+                                    formControlName="CECAClienteTitulo" 
+                                    placeholder="{{ 'CECAClientes.CECAClienteTitulo' | translate }}:" />
+                        </mat-form-field>
+                        <mat-error *ngIf="CECA_ClientesForm.controls.CECAClienteTitulo.invalid && CECA_ClientesForm.controls.CECAClienteTitulo.touched">{{ "CECAClientes.CECAClienteTituloError" | translate }}</mat-error>
+                    </div>
+                    <div class="col-sm-6 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  
+                                    formControlName="CECAClienteProvincia" 
+                                    placeholder="{{ 'CECAClientes.CECAClienteProvincia' | translate }}:" />
+                        </mat-form-field>
+                        <mat-error *ngIf="CECA_ClientesForm.controls.CECAClienteProvincia.invalid && CECA_ClientesForm.controls.CECAClienteProvincia.touched">{{ "CECAClientes.CECAClienteProvinciaError" | translate }}</mat-error>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  
+                                    formControlName="CECAClientePrimerApellido" 
+                                    placeholder="{{ 'CECAClientes.CECAClientePrimerApellido' | translate }}:" />
+                        </mat-form-field>
+                        <mat-error *ngIf="CECA_ClientesForm.controls.CECAClientePrimerApellido.invalid && CECA_ClientesForm.controls.CECAClientePrimerApellido.touched">{{ "CECAClientes.CECAClientePrimerApellidoError" | translate }}</mat-error>
+                    </div>
+                    <div class="col-sm-6 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  
+                                    formControlName="CECAClienteCanton" 
+                                    placeholder="{{ 'CECAClientes.CECAClienteCanton' | translate }}:" />
+                        </mat-form-field>
+                        <mat-error *ngIf="CECA_ClientesForm.controls.CECAClienteCanton.invalid && CECA_ClientesForm.controls.CECAClienteCanton.touched">{{ "CECAClientes.CECAClienteCantonError" | translate }}</mat-error>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  
+                                    formControlName="CECAClienteSegundoApellido" 
+                                    placeholder="{{ 'CECAClientes.CECAClienteSegundoApellido' | translate }}:" />
+                        </mat-form-field>
+                        <mat-error *ngIf="CECA_ClientesForm.controls.CECAClienteSegundoApellido.invalid && CECA_ClientesForm.controls.CECAClienteSegundoApellido.touched">{{ "CECAClientes.CECAClienteSegundoApellidoError" | translate }}</mat-error>
+                    </div>
+                    <div class="col-sm-6 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  
+                                    formControlName="CECAClienteDistrito" 
+                                    placeholder="{{ 'CECAClientes.CECAClienteDistrito' | translate }}:" />
+                        </mat-form-field>
+                        <mat-error *ngIf="CECA_ClientesForm.controls.CECAClienteDistrito.invalid && CECA_ClientesForm.controls.CECAClienteDistrito.touched">{{ "CECAClientes.CECAClienteDistritoError" | translate }}</mat-error>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  
+                                    formControlName="CECAClienteNombre" 
+                                    placeholder="{{ 'CECAClientes.CECAClienteNombre' | translate }}:" />
+                        </mat-form-field>
+                        <mat-error *ngIf="CECA_ClientesForm.controls.CECAClienteNombre.invalid && CECA_ClientesForm.controls.CECAClienteNombre.touched">{{ "CECAClientes.CECAClienteNombreError" | translate }}</mat-error>
+                    </div>
+                    <div class="col-sm-6 col-xs-12">                
+                        <label>{{ "CECAClientes.CECAClienteTipoCuenta" | translate }}:</label>
+                        <mat-radio-group 
+                            formControlName="CECAClienteTipoCuenta">
+                          <mat-radio-button value="CC" selected="true">{{ "CECAClientes._CECAClienteTipoCuenta.Corriente" | translate }}</mat-radio-button>
+                          <mat-radio-button value="AH">{{ "CECAClientes._CECAClienteTipoCuenta.Ahorros" | translate }}</mat-radio-button>
+                          <mat-radio-button value="MA">{{ "CECAClientes._CECAClienteTipoCuenta.Maestra" | translate }}</mat-radio-button>
+                        </mat-radio-group >
+                        <mat-error *ngIf="CECA_ClientesForm.controls.CECAClienteTipoCuenta.invalid && CECA_ClientesForm.controls.CECAClienteTipoCuenta.touched">{{ "CECAClientes.CECAClienteTipoCuentaError" | translate }}</mat-error>
+                    </div>                
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  
+                                    formControlName="CECAClienteRepresentante" 
+                                    placeholder="{{ 'CECAClientes.CECAClienteRepresentante' | translate }}:" />
+                        </mat-form-field>
+                        <mat-error *ngIf="CECA_ClientesForm.controls.CECAClienteRepresentante.invalid && CECA_ClientesForm.controls.CECAClienteRepresentante.touched">{{ "CECAClientes.CECAClienteRepresentanteError" | translate }}</mat-error>
+                    </div>
+                    <div class="col-sm-6 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  
+                                    formControlName="CECAClienteCuentaPrincipal" 
+                                    placeholder="{{ 'CECAClientes.CECAClienteCuentaPrincipal' | translate }}:" />
+                        </mat-form-field>
+                        <mat-error *ngIf="CECA_ClientesForm.controls.CECAClienteCuentaPrincipal.invalid && CECA_ClientesForm.controls.CECAClienteCuentaPrincipal.touched">{{ "CECAClientes.CECAClienteCuentaPrincipalError" | translate }}</mat-error>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput [matDatepicker]="myDatepickerCECAClienteFechaNacimiento"   displayFormat="MMM DD/YYYY" 
+                                    formControlName="CECAClienteFechaNacimiento" 
+                                    placeholder="{{ 'CECAClientes.CECAClienteFechaNacimiento' | translate }}:" />
+                            <mat-datepicker-toggle matSuffix [for]="myDatepickerCECAClienteFechaNacimiento"></mat-datepicker-toggle>
+                            <mat-datepicker #myDatepickerCECAClienteFechaNacimiento></mat-datepicker>
+                        </mat-form-field>
+                        <mat-error *ngIf="CECA_ClientesForm.controls.CECAClienteFechaNacimiento.invalid && CECA_ClientesForm.controls.CECAClienteFechaNacimiento.touched">{{ "CECAClientes.CECAClienteFechaNacimientoError" | translate }}</mat-error>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  
+                                    formControlName="CECAClienteDireccionPostal" 
+                                    placeholder="{{ 'CECAClientes.CECAClienteDireccionPostal' | translate }}:" />
+                        </mat-form-field>
+                        <mat-error *ngIf="CECA_ClientesForm.controls.CECAClienteDireccionPostal.invalid && CECA_ClientesForm.controls.CECAClienteDireccionPostal.touched">{{ "CECAClientes.CECAClienteDireccionPostalError" | translate }}</mat-error>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  
+                                    formControlName="CECAClienteTelefono" 
+                                    placeholder="{{ 'CECAClientes.CECAClienteTelefono' | translate }}:" />
+                        </mat-form-field>
+                        <mat-error *ngIf="CECA_ClientesForm.controls.CECAClienteTelefono.invalid && CECA_ClientesForm.controls.CECAClienteTelefono.touched">{{ "CECAClientes.CECAClienteTelefonoError" | translate }}</mat-error>
+                    </div>
+                    <div class="col-sm-6 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  
+                                    formControlName="CECAClienteTipo" 
+                                    placeholder="{{ 'CECAClientes.CECAClienteTipo' | translate }}:" />
+                        </mat-form-field>
+                        <mat-error *ngIf="CECA_ClientesForm.controls.CECAClienteTipo.invalid && CECA_ClientesForm.controls.CECAClienteTipo.touched">{{ "CECAClientes.CECAClienteTipoError" | translate }}</mat-error>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  
+                                    formControlName="CECAClienteRecibidor" 
+                                    placeholder="{{ 'CECAClientes.CECAClienteRecibidor' | translate }}:" />
+                        </mat-form-field>
+                        <mat-error *ngIf="CECA_ClientesForm.controls.CECAClienteRecibidor.invalid && CECA_ClientesForm.controls.CECAClienteRecibidor.touched">{{ "CECAClientes.CECAClienteRecibidorError" | translate }}</mat-error>
+                    </div>
+                    <div class="col-sm-6 col-xs-12" >
+                        <mat-checkbox  
+                                formControlName="CECAClienteCuentaCongelada" >
+                                {{ 'CECAClientes.CECAClienteCuentaCongelada' | translate }}:</mat-checkbox>
+                        <mat-error *ngIf="CECA_ClientesForm.controls.CECAClienteCuentaCongelada.invalid && CECA_ClientesForm.controls.CECAClienteCuentaCongelada.touched">{{ "CECAClientes.CECAClienteCuentaCongeladaError" | translate }}</mat-error>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  
+                                    formControlName="CECAClientePromotor" 
+                                    placeholder="{{ 'CECAClientes.CECAClientePromotor' | translate }}:" />
+                        </mat-form-field>
+                        <mat-error *ngIf="CECA_ClientesForm.controls.CECAClientePromotor.invalid && CECA_ClientesForm.controls.CECAClientePromotor.touched">{{ "CECAClientes.CECAClientePromotorError" | translate }}</mat-error>
+                    </div>
+                    <div class="col-sm-6 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  
+                                    formControlName="CECAClienteZona" 
+                                    placeholder="{{ 'CECAClientes.CECAClienteZona' | translate }}:" />
+                        </mat-form-field>
+                        <mat-error *ngIf="CECA_ClientesForm.controls.CECAClienteZona.invalid && CECA_ClientesForm.controls.CECAClienteZona.touched">{{ "CECAClientes.CECAClienteZonaError" | translate }}</mat-error>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 col-xs-12" >
+                        <mat-checkbox  
+                                formControlName="CECAClienteSobregiro" >
+                                {{ 'CECAClientes.CECAClienteSobregiro' | translate }}:</mat-checkbox>
+                        <mat-error *ngIf="CECA_ClientesForm.controls.CECAClienteSobregiro.invalid && CECA_ClientesForm.controls.CECAClienteSobregiro.touched">{{ "CECAClientes.CECAClienteSobregiroError" | translate }}</mat-error>
+                    </div>
+                    <div class="col-sm-4 col-xs-12" >
+                        <mat-checkbox  
+                                formControlName="CECAClienteReservado" >
+                                {{ 'CECAClientes.CECAClienteReservado' | translate }}:</mat-checkbox>
+                        <mat-error *ngIf="CECA_ClientesForm.controls.CECAClienteReservado.invalid && CECA_ClientesForm.controls.CECAClienteReservado.touched">{{ "CECAClientes.CECAClienteReservadoError" | translate }}</mat-error>
+                    </div>
+                    <div class="col-sm-4 col-xs-12" >
+                        <mat-checkbox  
+                                formControlName="CECAClienteCobroJudicial" >
+                                {{ 'CECAClientes.CECAClienteCobroJudicial' | translate }}:</mat-checkbox>
+                        <mat-error *ngIf="CECA_ClientesForm.controls.CECAClienteCobroJudicial.invalid && CECA_ClientesForm.controls.CECAClienteCobroJudicial.touched">{{ "CECAClientes.CECAClienteCobroJudicialError" | translate }}</mat-error>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 col-xs-12" >
+                        <mat-checkbox  
+                                formControlName="CECAClienteEmbargado" >
+                                {{ 'CECAClientes.CECAClienteEmbargado' | translate }}:</mat-checkbox>
+                        <mat-error *ngIf="CECA_ClientesForm.controls.CECAClienteEmbargado.invalid && CECA_ClientesForm.controls.CECAClienteEmbargado.touched">{{ "CECAClientes.CECAClienteEmbargadoError" | translate }}</mat-error>
+                    </div>
+                    <div class="col-sm-4 col-xs-12" >
+                        <mat-checkbox  
+                                formControlName="CECAClientePagaSubflete" >
+                                {{ 'CECAClientes.CECAClientePagaSubflete' | translate }}:</mat-checkbox>
+                        <mat-error *ngIf="CECA_ClientesForm.controls.CECAClientePagaSubflete.invalid && CECA_ClientesForm.controls.CECAClientePagaSubflete.touched">{{ "CECAClientes.CECAClientePagaSubfleteError" | translate }}</mat-error>
+                    </div>
+                    <div class="col-sm-4 col-xs-12" >
+                        <mat-form-field>
+                            <input matInput type="text"  
+                                    formControlName="CECAClienteRepelaPermitida" 
+                                    placeholder="{{ 'CECAClientes.CECAClienteRepelaPermitida' | translate }}:" />
+                        </mat-form-field>
+                        <mat-error *ngIf="CECA_ClientesForm.controls.CECAClienteRepelaPermitida.invalid && CECA_ClientesForm.controls.CECAClienteRepelaPermitida.touched">{{ "CECAClientes.CECAClienteRepelaPermitidaError" | translate }}</mat-error>
+                    </div>
+              </div>
+            </div>
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <mat-error *ngIf="resultError">{{ resultError }}</mat-error>
+        <mat-spinner *ngIf="_proc" style="width: 15px; height:15px"></mat-spinner>
+        <button mat-button (click)="onSubmit(CECA_ClientesForm.value);" [disabled]="!CECA_ClientesForm.valid">{{ "CECAClientes._guardar" | translate  }}</button>
+        <button mat-button mat-dialog-close>{{ "CECAClientes._cancelar" | translate  }}</button>
+    </mat-card-actions>
+</mat-card>
