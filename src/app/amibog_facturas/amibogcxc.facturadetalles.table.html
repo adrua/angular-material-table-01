@@ -175,8 +175,9 @@
   </ng-container>
 
 
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onSelect($event, row);"></mat-row>
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;" 
+            (click)="onSelect($event, row);"></mat-row>
 </mat-table>
 <mat-toolbar>
     <mat-toolbar-row>

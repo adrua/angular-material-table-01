@@ -38,7 +38,7 @@ export class AMIBOGCXC_FacturasService {
     }
 
     getAMIBOGCXC_FacturasList(val: string, pageSize: number): Observable<AMIBOGCXC_FacturasModel[]> {
-        let params = { 
+        let params = {
             term: val,
             pageSize: pageSize.toString()
         };

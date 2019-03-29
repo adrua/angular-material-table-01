@@ -1,9 +1,9 @@
 import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { TranslateService } from '@ngx-translate/core';
-import {Observable} from 'rxjs';
-import {map, switchMap, startWith} from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { map, switchMap, startWith } from 'rxjs/operators';
 
 import { AMIBOGCXC_FacturasService } from './amibogcxc.facturas.service';
 import { AMIBOGCXC_FacturasModel } from './amibogcxc.facturas.model';
@@ -15,11 +15,9 @@ import { AMIBOGCXC_FacturasModel } from './amibogcxc.facturas.model';
   providers: [AMIBOGCXC_FacturasService]
 })
 export class AMIBOGCXC_Facturas_Dialog {
-    rows: AMIBOGCXC_FacturasModel[] = [];
+    selectedAMIBOGCXC_Facturas: AMIBOGCXC_FacturasModel;
+    
     AMIBOGCXC_FacturasForm: FormGroup;
-
-    selectedAMIBOGCXC_Facturas: AMIBOGCXC_FacturasModel = new AMIBOGCXC_FacturasModel();
-
     ClienteAMIBOGCXCRazonSocialCtrl: FormControl = new FormControl();
     filteredClienteAMIBOGCXCRazonSocial: Array<any> = [];
 
@@ -37,7 +35,6 @@ export class AMIBOGCXC_Facturas_Dialog {
  
          // the lang to use, if the lang isn't available, it will use the current loader to get them
         translate.use('es');
-
 
         this.selectedAMIBOGCXC_Facturas = data;
     }
@@ -69,7 +66,7 @@ export class AMIBOGCXC_Facturas_Dialog {
         this.selectedAMIBOGCXC_Facturas = row;
     }
 
-    onSubmit(formData) {
+    onSubmit(formData: AMIBOGCXC_FacturasModel) {
         this._proc = true;
         if (this.AMIBOGCXC_FacturasForm.valid) {
             this.AMIBOGCXC_FacturasService.saveAMIBOGCXC_Facturas(formData).subscribe((data: any) => {

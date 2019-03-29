@@ -1,7 +1,9 @@
 import { Component, Inject } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { TranslateService } from '@ngx-translate/core';
+import { Observable } from 'rxjs';
+import { map, switchMap, startWith } from 'rxjs/operators';
 
 import { AMIBOGCXC_FacturaDetallesService } from './amibogcxc.facturadetalles.service';
 import { AMIBOGCXC_FacturaDetallesModel } from './amibogcxc.facturadetalles.model';
@@ -12,9 +14,9 @@ import { AMIBOGCXC_FacturaDetallesModel } from './amibogcxc.facturadetalles.mode
   providers: [AMIBOGCXC_FacturaDetallesService]
 })
 export class AMIBOGCXC_FacturaDetalles_Dialog {
-    AMIBOGCXC_FacturaDetallesForm: FormGroup;
-
     selectedAMIBOGCXC_FacturaDetalles: AMIBOGCXC_FacturaDetallesModel;
+    
+    AMIBOGCXC_FacturaDetallesForm: FormGroup;
 
     _proc: boolean = false;
     _status: boolean = false;
@@ -31,7 +33,6 @@ export class AMIBOGCXC_FacturaDetalles_Dialog {
          // the lang to use, if the lang isn't available, it will use the current loader to get them
         translate.use('es');
         //this.selectedAMIBOGCXCFacturas = navParams.get('AMIBOGCXCFacturas');
-
 
         this.selectedAMIBOGCXC_FacturaDetalles = data;
     }
@@ -64,7 +65,7 @@ export class AMIBOGCXC_FacturaDetalles_Dialog {
 
                 if(!this._status) {
                     this.dialogRef.close({ 
-                        data: this.selectedAMIBOGCXC_FacturaDetalles          
+                        data: formData          
                     });
                 } else {
                   this.resultError = data.error.map((x) => x.Message).join('');  

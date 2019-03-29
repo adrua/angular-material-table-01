@@ -26,8 +26,8 @@ export class AMIBOGCXC_FacturaDetallesService {
     }
 
     getAMIBOGCXC_FacturaDetalles(row: AMIBOGCXC_FacturasModel): Observable<{}|AMIBOGCXC_FacturaDetallesModel> {
-        let params = {
-            Compania: row.Compania.toString(), 
+        let params = { 
+            Compania: row.Compania.toString(),
             AMIBOGCXCFacturaid: row.AMIBOGCXCFacturaid.toString()
         };
 
@@ -40,7 +40,7 @@ export class AMIBOGCXC_FacturaDetallesService {
 
     getAMIBOGCXC_FacturaDetallesList(row: AMIBOGCXC_FacturasModel, pageSize: number = 10): Observable<any> {
         let params = {
-            Compania: row.Compania.toString(), 
+            Compania: row.Compania.toString(),
             AMIBOGCXCFacturaid: row.AMIBOGCXCFacturaid.toString(),
             pageSize: pageSize.toString()
         };

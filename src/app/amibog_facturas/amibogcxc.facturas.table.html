@@ -3,6 +3,7 @@
 </mat-form-field>
 <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
 <mat-table [dataSource]="rows" class="mat-elevation-z8" matSort multiTemplateDataRows>
+    <!-- select! Column -->
  <ng-container matColumnDef="select">
     <mat-header-cell *matHeaderCellDef></mat-header-cell>
     <mat-cell *matCellDef="let row">
@@ -11,6 +12,7 @@
       </mat-icon>
     </mat-cell>
   </ng-container>
+
     <!-- id! Column -->
   <ng-container matColumnDef="AMIBOGCXCFacturaid">
     <mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ "AMIBOGCXCFacturas.AMIBOGCXCFacturaid" | translate }}!</mat-header-cell>
@@ -301,20 +303,19 @@
     </mat-menu>
   </ng-container>
 
- <ng-container matColumnDef="expandedDetail">
+  <ng-container matColumnDef="expandedDetail">
     <mat-cell *matCellDef="let row" [attr.colspan]="displayedColumns.length">
-      <div class="example-element-detail" *ngIf="selectedRow === row">
-        <amibogcxc-facturadetalles-table [masterRow]="row"></amibogcxc-facturadetalles-table>
-      </div>
+      <amibogcxc-facturadetalles-table *ngIf="selectedRow === row" 
+            [masterRow]="row"></amibogcxc-facturadetalles-table>
     </mat-cell>
   </ng-container>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;" 
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;" 
             class="element-row" 
             [class.expanded]="selectedRow === row" 
             (click)="onSelect($event, row);"></mat-row>
-    <mat-row *matRowDef="let detailRow; columns: ['expandedDetail']" 
+  <mat-row *matRowDef="let detailRow; columns: ['expandedDetail']" 
                 [@detailExpand]="detailRow == selectedRow ? 'expanded' : 'collapsed'" 
                 style="overflow: hidden"></mat-row>
 </mat-table>

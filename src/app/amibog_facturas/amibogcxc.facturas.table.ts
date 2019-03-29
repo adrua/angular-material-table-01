@@ -1,8 +1,8 @@
-import {Component, ViewChild, AfterViewInit} from '@angular/core';
-import {animate, state, style, transition, trigger} from '@angular/animations';
-import {MatPaginator, MatSort} from '@angular/material';
-import {merge, Observable, of as observableOf} from 'rxjs';
-import {catchError, map, startWith, switchMap} from 'rxjs/operators';
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
+import { animate, state, style, transition, trigger } from '@angular/animations';
+import { MatPaginator, MatSort } from '@angular/material';
+import { merge, Observable, of as observableOf } from 'rxjs';
+import { catchError, map, startWith, switchMap } from 'rxjs/operators';
 
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { TranslateService } from '@ngx-translate/core';
@@ -40,13 +40,13 @@ export const CONDITIONS_FUNCTIONS = { // search method base on conditions list v
   templateUrl: './amibogcxc.facturas.table.html',
   // styleUrls: ['./amibogcxc.facturas.table.css'],
   animations: [
-    trigger('detailExpand', [
-      state('collapsed', style({height: '0px', minHeight: '0', display: 'none'})),
-      state('expanded', style({height: '*'})),
-      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
-    ]),
-  ],
-    providers: [AMIBOGCXC_FacturasService]
+        trigger('detailExpand', [
+          state('collapsed', style({height: '0px', minHeight: '0', display: 'none'})),
+          state('expanded', style({height: '*'})),
+          transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+        ]),
+    ],
+  providers: [AMIBOGCXC_FacturasService]
 })
 export class AMIBOGCXC_Facturas_Table implements AfterViewInit  {
     rows: AMIBOGCXC_FacturasModel[] = [];
@@ -65,7 +65,7 @@ export class AMIBOGCXC_Facturas_Table implements AfterViewInit  {
     
     @ViewChild(MatPaginator) paginator: MatPaginator;
     @ViewChild(MatSort) sort: MatSort;
-  
+
     _proc: boolean = false;
     _status: boolean = false;
 
@@ -111,6 +111,7 @@ export class AMIBOGCXC_Facturas_Table implements AfterViewInit  {
 
     add(): void {
       this.selectedRow = new AMIBOGCXC_FacturasModel();
+
       this.rows.push(this.selectedRow);
       this.rows = [...this.rows];
       this.openDialog();

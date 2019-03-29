@@ -1,7 +1,7 @@
-import {Component, ViewChild, AfterViewInit, Input} from '@angular/core';
-import {MatPaginator, MatSort} from '@angular/material';
-import {merge, Observable, of as observableOf} from 'rxjs';
-import {catchError, map, startWith, switchMap} from 'rxjs/operators';
+import { Component, ViewChild, AfterViewInit, Input } from '@angular/core';
+import { MatPaginator, MatSort } from '@angular/material';
+import { merge, Observable, of as observableOf } from 'rxjs';
+import { catchError, map, startWith, switchMap } from 'rxjs/operators';
 
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { TranslateService } from '@ngx-translate/core';
@@ -57,14 +57,12 @@ export class AMIBOGCXC_FacturaDetalles_Table implements AfterViewInit  {
     
     @ViewChild(MatPaginator) paginator: MatPaginator;
     @ViewChild(MatSort) sort: MatSort;
-  
+    @Input() masterRow: AMIBOGCXC_FacturasModel;
+
     _proc: boolean = false;
     _status: boolean = false;
 
     _pageSize: number = 10;
-
-    @Input() 
-    masterRow: AMIBOGCXC_FacturasModel;
 
     constructor(private translate: TranslateService,
                 public dialog: MatDialog,
@@ -130,7 +128,7 @@ export class AMIBOGCXC_FacturaDetalles_Table implements AfterViewInit  {
         });
         
         dialogRef.afterClosed().subscribe(result => {
-          this.selectedRow = result;
+          Object.assign(this.selectedRow, result.data);
         });
     }
 
