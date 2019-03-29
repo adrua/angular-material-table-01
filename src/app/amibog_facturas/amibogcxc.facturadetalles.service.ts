@@ -38,13 +38,14 @@ export class AMIBOGCXC_FacturaDetallesService {
         );
     }
 
-    getAMIBOGCXC_FacturaDetallesList(val: string, pageSize: number): Observable<AMIBOGCXC_FacturaDetallesModel[]> {
+    getAMIBOGCXC_FacturaDetallesList(row: AMIBOGCXC_FacturasModel, pageSize: number = 10): Observable<any> {
         let params = {
-            term: val,
+            Compania: row.Compania.toString(), 
+            AMIBOGCXCFacturaid: row.AMIBOGCXCFacturaid.toString(),
             pageSize: pageSize.toString()
         };
 
-        let sUrl = `${this.AMIBOGCXC_FacturaDetallesUrl}/Search/0`;
+        let sUrl = `${this.AMIBOGCXC_FacturaDetallesUrl}/Gets/0`;
 
         return this.http.get<AMIBOGCXC_FacturaDetallesModel[]>(sUrl, {params: params}).pipe(
             retry(3),
@@ -53,7 +54,7 @@ export class AMIBOGCXC_FacturaDetallesService {
         );
     }
 
-    addAMIBOGCXC_FacturaDetalles(mrow: AMIBOGCXC_FacturasModel, row: AMIBOGCXC_FacturaDetallesModel): Observable<AMIBOGCXC_FacturaDetallesModel> {
+    addAMIBOGCXC_FacturaDetalles(row: AMIBOGCXC_FacturaDetallesModel): Observable<AMIBOGCXC_FacturaDetallesModel> {
         let sUrl = `${this.AMIBOGCXC_FacturaDetallesUrl}/add/0`;
         return this.http.post<AMIBOGCXC_FacturaDetallesModel>(sUrl, row, httpOptions).pipe(
             retry(3),
@@ -73,9 +74,9 @@ export class AMIBOGCXC_FacturaDetallesService {
         );
     }
 
-    saveAMIBOGCXC_FacturaDetalles(mrow: AMIBOGCXC_FacturasModel, row: AMIBOGCXC_FacturaDetallesModel): Observable<AMIBOGCXC_FacturaDetallesModel> {
+    saveAMIBOGCXC_FacturaDetalles(row: AMIBOGCXC_FacturaDetallesModel): Observable<AMIBOGCXC_FacturaDetallesModel> {
         if (row.Estado === 'N') {
-            return this.addAMIBOGCXC_FacturaDetalles(mrow, row);
+            return this.addAMIBOGCXC_FacturaDetalles(row);
         } else {
             return this.updateAMIBOGCXC_FacturaDetalles(row);
         }

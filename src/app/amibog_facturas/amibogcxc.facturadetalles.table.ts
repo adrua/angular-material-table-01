@@ -1,4 +1,4 @@
-import {Component, ViewChild, AfterViewInit} from '@angular/core';
+import {Component, ViewChild, AfterViewInit, Input} from '@angular/core';
 import {MatPaginator, MatSort} from '@angular/material';
 import {merge, Observable, of as observableOf} from 'rxjs';
 import {catchError, map, startWith, switchMap} from 'rxjs/operators';
@@ -63,6 +63,9 @@ export class AMIBOGCXC_FacturaDetalles_Table implements AfterViewInit  {
 
     _pageSize: number = 10;
 
+    @Input() 
+    masterRow: AMIBOGCXC_FacturasModel;
+
     constructor(private translate: TranslateService,
                 public dialog: MatDialog,
                 private AMIBOGCXC_FacturaDetallesService: AMIBOGCXC_FacturaDetallesService) {
@@ -82,7 +85,7 @@ export class AMIBOGCXC_FacturaDetalles_Table implements AfterViewInit  {
             startWith({}),
             switchMap(() => {
               this.isLoadingResults = true;
-              return this.AMIBOGCXC_FacturaDetallesService.getAMIBOGCXC_FacturaDetallesList("", this._pageSize);
+              return this.AMIBOGCXC_FacturaDetallesService.getAMIBOGCXC_FacturaDetallesList(this.masterRow, this._pageSize);
             }),
             map(data => {
               // Flip flag to show that loading has finished.
@@ -98,11 +101,14 @@ export class AMIBOGCXC_FacturaDetalles_Table implements AfterViewInit  {
               this.isRateLimitReached = true;
               return observableOf([]);
             })
-          ).subscribe(data => this.rows = data);
+          ).subscribe(data => this.rows = data.rows);
     }
 
     add(): void {
       this.selectedRow = new AMIBOGCXC_FacturaDetallesModel();
+      this.selectedRow.Compania = this.masterRow.Compania;
+      this.selectedRow.AMIBOGCXCFacturaid = this.masterRow.AMIBOGCXCFacturaid;
+
       this.rows.push(this.selectedRow);
       this.rows = [...this.rows];
       this.openDialog();

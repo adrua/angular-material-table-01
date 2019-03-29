@@ -303,13 +303,11 @@
 
  <ng-container matColumnDef="expandedDetail">
     <mat-cell *matCellDef="let row" [attr.colspan]="displayedColumns.length">
-      <div class="example-element-detail"
-           >
-        <amibogcxc-facturadetalles-table></amibogcxc-facturadetalles-table>
+      <div class="example-element-detail" *ngIf="selectedRow === row">
+        <amibogcxc-facturadetalles-table [masterRow]="row"></amibogcxc-facturadetalles-table>
       </div>
     </mat-cell>
   </ng-container>
-
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;" 

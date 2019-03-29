@@ -1,13 +1,10 @@
 import { Component, Inject } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { TranslateService } from '@ngx-translate/core';
-import {Observable} from 'rxjs';
-import {map, switchMap, startWith} from 'rxjs/operators';
 
 import { AMIBOGCXC_FacturaDetallesService } from './amibogcxc.facturadetalles.service';
 import { AMIBOGCXC_FacturaDetallesModel } from './amibogcxc.facturadetalles.model';
-import { AMIBOGCXC_FacturasModel } from './amibogcxc.facturas.model';
 
 @Component({
   templateUrl: './amibogcxc.facturadetalles.dialog.html',
@@ -15,12 +12,9 @@ import { AMIBOGCXC_FacturasModel } from './amibogcxc.facturas.model';
   providers: [AMIBOGCXC_FacturaDetallesService]
 })
 export class AMIBOGCXC_FacturaDetalles_Dialog {
-    rows: AMIBOGCXC_FacturaDetallesModel[] = [];
     AMIBOGCXC_FacturaDetallesForm: FormGroup;
 
-    selectedAMIBOGCXC_FacturaDetalles: AMIBOGCXC_FacturaDetallesModel = new AMIBOGCXC_FacturaDetallesModel();
-      selectedAMIBOGCXCFacturas: AMIBOGCXC_FacturasModel;
-      AMIBOGCXCFacturasForm: FormGroup;
+    selectedAMIBOGCXC_FacturaDetalles: AMIBOGCXC_FacturaDetallesModel;
 
     _proc: boolean = false;
     _status: boolean = false;
@@ -60,10 +54,10 @@ export class AMIBOGCXC_FacturaDetalles_Dialog {
         this.selectedAMIBOGCXC_FacturaDetalles = row;
     }
 
-    onSubmit(formData) {
+    onSubmit(formData: AMIBOGCXC_FacturaDetallesModel) {
         this._proc = true;
         if (this.AMIBOGCXC_FacturaDetallesForm.valid) {
-            this.AMIBOGCXC_FacturaDetallesService.saveAMIBOGCXC_FacturaDetalles(this.selectedAMIBOGCXCFacturas, formData).subscribe((data: any) => {
+            this.AMIBOGCXC_FacturaDetallesService.saveAMIBOGCXC_FacturaDetalles(formData).subscribe((data: any) => {
                 this._proc = false;
                 this._status = !!data.error;
                 this.resultError = null;
