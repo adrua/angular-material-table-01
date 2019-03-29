@@ -25,7 +25,10 @@ export class AMIBOGCXC_FacturasService {
     }
 
     getAMIBOGCXC_Facturas(row: AMIBOGCXC_FacturasModel): Observable<{}|AMIBOGCXC_FacturasModel> {
-        let params = `Compania=${row.Compania}&AMIBOGCXCFacturaid=${row.AMIBOGCXCFacturaid}`;
+        let params = { 
+            Compania: row.Compania.toString(),
+            AMIBOGCXCFacturaid: row.AMIBOGCXCFacturaid.toString()
+        };
 
         return this.http.get<AMIBOGCXC_FacturasModel>(this.AMIBOGCXC_FacturasUrl, {params: params}).pipe(
             retry(3),
@@ -35,7 +38,10 @@ export class AMIBOGCXC_FacturasService {
     }
 
     getAMIBOGCXC_FacturasList(val: string, pageSize: number): Observable<AMIBOGCXC_FacturasModel[]> {
-        let params = `term=${val}&pageSize=${pageSize}`;
+        let params = { 
+            term: val,
+            pageSize: pageSize.toString()
+        };
 
         let sUrl = `${this.AMIBOGCXC_FacturasUrl}/Search/0`;
 
